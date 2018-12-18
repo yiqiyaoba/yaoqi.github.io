@@ -1,10 +1,10 @@
 # About me
 
-I am a physics undergraduate at Nankai University. I use this website to share my understanding of many theories I learned. The most recent notes are often in progress, for I like to keep a few projects running at the same time. You are always welcomed to comment on my posts for suggestion or discussion. Some of the old notes were written in Chinese. You can learn more about me [here](https://yk-liu.github.io/about).
+You can learn more about me [here](https://huangtao36.github.io/about/).
 
 # About this website
 
-This website (source code [here](https://github.com/yk-liu/yk-liu.github.io)) uses these sources:
+This website (source code from [yk-liu](https://github.com/yk-liu/yk-liu.github.io)) uses these sources:
 
 | Module                                                       | Mainly used in                                  | License/ TOS                                                 |
 | ------------------------------------------------------------ | ----------------------------------------------- | ------------------------------------------------------------ |
