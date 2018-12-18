@@ -4,7 +4,7 @@ layout: home
 <div class="user-details">
 <h2> Me and This Website </h2>
 <p style="text-align: justify;"> &nbsp;&nbsp;&nbsp;&nbsp; Source code is from <a href="https://github.com/yk-liu/yk-liu.github.io">yk-liu.github.io</a>, You can learn more at <a href="/about"> about page</a>. </p>
-<div class="analytics"  style="border: solid lightgrey; border-radius: 5px;">
+<div class="analytics">  <!--  style="border: solid lightgrey; border-radius: 5px;"> -->
 	<h3> Analytics </h3>
 	{% include worldmap.html %}
 	<p> <small> If you are not seeing this, please disable Ad block </small></p>
@@ -13,7 +13,7 @@ layout: home
 <div class="permlinks">
 <h2>Recent Posts</h2>
 <dl>
-	{% for post in site.posts limit:4 %}
+	{% for post in site.posts limit:6 %}
 	<dt><code>{{ post.date | date_to_string }} </code><i class="fas fa-angle-double-right" aria-hidden="true"></i><a href="{{ post.url }}">{{ post.title }}</a> &nbsp;{% include status-indicator.html status=post.status%}
 	{% if post.description %}
  <dd style="text-align: justify">{{ post.description | markdownify }}
@@ -21,15 +21,4 @@ layout: home
 	{% endif %}
 	{% endfor %}
 	<p>... <a href="/blog">Full Posts List</a> </p>
-</dl>
-
-<h2>Upcoming Posts</h2>
-<dl>
-	{% for draft in site.drafts limit:4 %}
-	<dt><code>{{ post.date | date_to_string }} </code><i class="fas fa-angle-double-right" aria-hidden="true"></i><a href="{{ post.url }}">{{ post.title }}</a> &nbsp;{% include status-indicator.html status=post.status%}
-	{% if post.description %}
- <dd style="text-align: justify">{{ post.description | markdownify }}
-    </dd>
-	{% endif %}
-	{% endfor %}
 </dl>
