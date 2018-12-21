@@ -18,7 +18,7 @@ status: Writing
 ---
 
 # Paper Work
-<img src="https://github.com/huangtao36/huangtao36.github.io/blob/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/ImageGeometricMatching.png" style="zoom:50%" />
+<img src="https://github.com/huangtao36/huangtao36.github.io/tree/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/ImageGeometricMatching.png" style="zoom:50%" />
 
 xxx
 
