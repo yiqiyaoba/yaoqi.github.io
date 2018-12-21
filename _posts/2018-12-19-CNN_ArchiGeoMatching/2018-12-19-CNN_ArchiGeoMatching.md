@@ -30,7 +30,7 @@ status: Writing
 
 **handle large changes of appearance between the matched images.**
   
-经典的相似度估计方法，比如使用 SIFT 或 HOG 获取局部特征丢弃不正确的匹配进行模糊匹配，然后将模糊匹配的结果输入到 RANSAC 或者 Hough transform 中进行精确匹配，虽然效果不错但是无法应对场景变换较大以及复杂的几何形变的情况。 本文使用CNN提取特征以应对这两点不足。
+经典的相似度估计方法，比如使用 SIFT 或 HOG 获取局部特征丢弃不正确的匹配进行模糊匹配，然后将模糊匹配的结果输入到 RANSAC 或者 Hough transform 中进行精确匹配，虽然效果不错但是无法应对场景变换较大以及复杂的几何形变的情况。 本文使用CNN提取特征以应对这两点不足:
 
 - 用CNN特征替换原有经典特征，即使场景变换很大，也能够很好的提取特征；
 - 设计一个匹配和变换估计层，加强模型鲁棒性。
@@ -38,6 +38,14 @@ status: Writing
 (from [jianshu huyuanda](https://www.jianshu.com/p/837615ee36fd))
 
 # Architecture/Method
+
+网络结构如下图所示：
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture.png" style="zoom:50%" />
+
+**输入**： $I_A$, $I_B$, 两张图片（实验为）  
+**输出**： 仿射参数（参数个数可调整）
+
+ 
 
 # Experiments
 
