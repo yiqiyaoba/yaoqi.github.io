@@ -128,7 +128,11 @@ xxx
 xxx
 
 ### Dataset
-xxx
+由于没有公开的数据集，故使用如下的方法人工构建：
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/SyntheticImageGeneration.png" style="zoom:60%" />
+
+
 
 ### Performance Measure
 xxx
