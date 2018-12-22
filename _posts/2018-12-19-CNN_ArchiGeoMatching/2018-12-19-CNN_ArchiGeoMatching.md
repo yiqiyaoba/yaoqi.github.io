@@ -68,7 +68,7 @@ $f_A$ 与 $f_B$ 通过点乘得到 correlation map($c_(AB)$)。
 
 **代码如下：**  
 
-```Python
+```python
 # implement by Pytorch
 class FeatureCorrelation(torch.nn.Module):
     def __init__(self):
