@@ -90,11 +90,32 @@ class FeatureCorrelation(torch.nn.Module):
 '''
 ```
 
-通过 Matching 得到的 ${f_{AB}}$ 同样经过了 L2-normalization。
+通过 Matching 得到的 ${f_{AB}}$ 经过了 RELU 后，再经过 L2-normalization 才得到最后的结果。
+
+>
+> **Q: 为什么要经过 RELU 和 L2-normalization？**
+> 
+> Ans:  First, let us consider the case when descriptor fB correlates well with only a single feature in fA. In this case, the normalization will amplify the score of the match, akin to the nearest neighbor matching in classical geometry estimation. Second, in the case of the descriptor fB matching multiple features in fA due to the existence of clutter or repetitive patterns, matching scores will be down-weighted similarly to the second nearest neighbor test [38].(原文)
+>
+> 38: D. G. Lowe. Distinctive image features from scale-invariant keypoints. IJCV, 2004.
+>
+> 注： 我还不了解具体的意思，做个记录备查！ 原文中有更多的 Discussion.  
+> huyuanda 的笔记中有简单的介绍： [https://www.jianshu.com/p/837615ee36fd](https://www.jianshu.com/p/837615ee36fd)
 
 ### Regression
+Regression Network 是得到最后仿射参数的网络，如下图所示： 
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/RegressionNetwork.png" style="zoom:50%" />
+
+使用卷积层而不是直接使用全连接层，是因为 as the input correlation map size is quadratic in the number of image features, such a network would be hard to train due to a large number of parameters that would need to be learned, and it would not be scalable due to occupying too much memory and being too slow to use.
+
+最后得到的 $\hat \theta$ 的参数个数是可调的。
+
+### Full Network
+
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture_all.png" style="zoom:60%" />
+
 
 
 ## Experiments
