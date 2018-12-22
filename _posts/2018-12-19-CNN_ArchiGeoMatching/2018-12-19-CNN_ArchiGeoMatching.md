@@ -45,15 +45,20 @@ status: Writing
 **输入：** $I_A$, $I_B$, 图片  
 **输出：** 仿射参数（参数个数可调整）
 
-**Feature extraction CNN：**
+**Feature extraction CNN：**  
 使用的是VGG-16 crop at pool4, 输出的每一个 feature 都经过了 L2-normalization, 之后得到 $f_A$, $f_B$.
-
-**Matching:**
+ 
+**Matching:**  
 Matching的方法如下图所示：
 
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/correlationLayer.png" style="zoom:70%" />
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/correlationLayer.png" style="zoom:50%" />
 
+$$
+{c_{AB}}(i,j,k) = {f_B}{(i,j)^T}{f_A}({i_k},{j_k})
+$$
 
+$f_A$ 与 $f_B$ 进行点乘得到 correlation map($c_AB$)
+原来两个 $w×h$的 feature map ，每个 $1×1×d$ 的向量通过点乘得到 $w×h×(w×h)$ 这样一个立方体。立方体当中的每一个位置 $(i，j)$ 表示 $f_B$ 中的$(i，j)$ 位置的点对应 $f_A$ 中所有点的相似度。这里 correlation map 的深度 $(w×h)$ 即 $f_A$ 中所有点被展开成 $k$，表示 $f_A$ 中点的索引。
 
 # Experiments
 
