@@ -47,7 +47,7 @@ status: Writing
 **输出：** 仿射参数（参数个数可调整）
 
 ### Feature extraction CNN 
-使用的是VGG-16 crop at pool4, 输出的每一个 feature 都经过了 L2-normalization, 之后得到 $f_A$, $f_B$.
+使用的是 VGG-16 crop at pool4, 输出的每一个 feature 都经过了 L2-normalization, 之后得到 $f_A$, $f_B$.
  
 ### Matching
 Matching的方法如下图所示：
@@ -57,14 +57,14 @@ Matching的方法如下图所示：
 公式如下： 
 
 $$
-{c_{AB}}(i,j,k) = {f_B}{(i,j)^T}{f_A}({i_k},{j_k})
+{C_{AB}}(i,j,k) = {f_B}{(i,j)^T}{f_A}({i_k},{j_k})
 $$
 
 原文： where $(i, j)$ and $(i_k, j_k)$ indicate the individual feature positions in the $h×w$ dense feature maps, and $k = h(j_k−1)+i_k$ is an auxiliary indexing variable for $(i_k, j_k)$.
 
-$f_A$ 与 $f_B$ 通过点乘得到 correlation map(${c_{AB}}$)。 结合公式与图，$f_B$ 中的每一个 $1x1xd$ 向量， 都乘以了 $f_A$ 中每一个 $1x1xd$ 向量， 得到的结果是 ${c_{AB}}$ 当中的每一个位置 $(i，j)$ 表示 $f_B$ 中的 $(i，j)$ 位置的点对应 $f_A$ 中所有点的相似度(这里的‘点’均表示 $1x1xd$ 向量)。 
+$f_A$ 与 $f_B$ 通过点乘得到 correlation map(${C_{AB}}$)。 结合公式与图，$f_B$ 中的每一个 $1 \times 1 \times d$ 向量， 都乘以了 $f_A$ 中每一个 $1 \times 1 \times d$ 向量， 得到的结果是 ${C_{AB}}$ 当中的每一个位置 $(i，j)$ 表示 $f_B$ 中的 $(i，j)$ 位置的点对应 $f_A$ 中所有点的相似度(这里的‘点’均表示 $1 \times 1 \times d$ 向量)。 
 
-**代码如下：**  
+**实现代码如下：**  
 
 ```python
 # implement by Pytorch
@@ -89,6 +89,13 @@ class FeatureCorrelation(torch.nn.Module):
 # 如果在view之前用了transpose, permute等，需要用contiguous()来返回一个contiguous copy。
 '''
 ```
+
+通过 Matching 得到的 ${f_{AB}}$ 同样经过了 L2-normalization。
+
+### Regression
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/RegressionNetwork.png" style="zoom:50%" />
+
 
 ## Experiments
 
