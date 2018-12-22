@@ -41,7 +41,7 @@ status: Writing
 ## Architecture/Method
 
 网络结构如下图所示：
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture.png" style="zoom:70%" />
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture.png" style="zoom:60%" />
 
 **输入：** $I_A$, $I_B$, 图片  
 **输出：** 仿射参数（参数个数可调整）
@@ -52,7 +52,7 @@ status: Writing
 ### Matching
 Matching的方法如下图所示：
 
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/correlationLayer.png" style="zoom:50%" />
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/correlationLayer.png" style="zoom:60%" />
 
 公式如下： 
 
@@ -105,21 +105,36 @@ class FeatureCorrelation(torch.nn.Module):
 ### Regression
 Regression Network 是得到最后仿射参数的网络，如下图所示： 
 
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/RegressionNetwork.png" style="zoom:50%" />
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/RegressionNetwork.png" style="zoom:60%" />
 
 使用卷积层而不是直接使用全连接层，是因为 as the input correlation map size is quadratic in the number of image features, such a network would be hard to train due to a large number of parameters that would need to be learned, and it would not be scalable due to occupying too much memory and being too slow to use.
 
 最后得到的 $\hat \theta$ 的参数个数是可调的。
 
 ### Full Network
-
+整体的网络结构由上述相同的两个结果组成，只是最后的仿射参数的个数不同，如下图所示，Stage I 输出的仿射参数 ${\hat \theta _{Aff}}$ 为 **6** 个自由度， 而 Stage II 输出的 ${\hat \theta _{TPS}}$ 为18个自由度。
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture_all.png" style="zoom:60%" />
 
+#### Affine Transformation
+xxx
 
+#### Thin-plate Spline Transformation
+xxx
 
 ## Experiments
 
+### Loss Function
+xxx
+
+### Dataset
+xxx
+
+### Performance Measure
+xxx
+
 ## Results
+xxx
 
 ## Related Work
+xxx
