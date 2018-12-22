@@ -20,7 +20,7 @@ status: Writing
 # Paper Work
 这是关于图像几何/特征匹配的工作，如下图所示：
 
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/ImageGeometricMatching.png" style="zoom:50%" />
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/ImageGeometricMatching.png" style="zoom:70%" />
 
 给定一张图片 A，图中包含一个物体（这里是摩托车）， 以另一张包含相同特征物体的图像 B 作为目标， 实现的是 A 中的摩托车通过仿射变换拟合 B 中的图像。 学习的是这个仿射变换过程中的仿射参数。
 
@@ -40,12 +40,20 @@ status: Writing
 # Architecture/Method
 
 网络结构如下图所示：
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture.png" style="zoom:50%" />
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture.png" style="zoom:70%" />
 
-**输入**： $I_A$, $I_B$, 两张图片（实验为）  
-**输出**： 仿射参数（参数个数可调整）
+**输入：** $I_A$, $I_B$, 图片  
+**输出：** 仿射参数（参数个数可调整）
 
- 
+**Feature extraction CNN：**
+使用的是VGG-16 crop at pool4, 输出的每一个 feature 都经过了 L2-normalization, 之后得到 $f_A$, $f_B$.
+
+**Matching:**
+Matching的方法如下图所示：
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/correlationLayer.png" style="zoom:70%" />
+
+
 
 # Experiments
 
