@@ -62,9 +62,7 @@ $$
 
 原文： where $(i, j)$ and $(i_k, j_k)$ indicate the individual feature positions in the $h×w$ dense feature maps, and $k = h(j_k−1)+i_k$ is an auxiliary indexing variable for $(i_k, j_k)$.
 
-$f_A$ 与 $f_B$ 通过点乘得到 correlation map($c_(AB)$)。 
-
-原来两个 $w×h$ 的 feature map，每个 $1×1×d$ 的向量通过点乘得到 $w×h×(w×h)$ 这样一个立方体。 立方体当中的每一个位置 $(i，j)$ 表示 $f_B$ 中的$(i，j)$ 位置的点对应 $f_A$ 中所有点的相似度。这里 correlation map 的深度 $(w×h)$ 即 $f_A$ 中所有点被展开成 $k$，表示 $f_A$ 中点的索引。
+$f_A$ 与 $f_B$ 通过点乘得到 correlation map(${c_{AB}}$)。 结合公式与图，$f_B$ 中的每一个 $1x1xd$ 向量， 都乘以了 $f_A$ 中每一个 $1x1xd$ 向量， 得到的结果是 ${c_{AB}}$ 当中的每一个位置 $(i，j)$ 表示 $f_B$ 中的 $(i，j)$ 位置的点对应 $f_A$ 中所有点的相似度(这里的‘点’均表示 $1x1xd$ 向量)。 
 
 **代码如下：**  
 
@@ -75,13 +73,13 @@ class FeatureCorrelation(torch.nn.Module):
         super(FeatureCorrelation, self).__init__()
     
     def forward(self, feature_A, feature_B):
-        b,c,h,w = feature_A.size()
+        b, c, h, w = feature_A.size()
         # reshape features for matrix multiplication
-        feature_A = feature_A.transpose(2,3).contiguous().view(b,c,h*w)
-        feature_B = feature_B.view(b,c,h*w).transpose(1,2)
+        feature_A = feature_A.transpose(2, 3).contiguous().view(b, c, h * w)
+        feature_B = feature_B.view(b, c, h * w).transpose(1, 2)
         # perform matrix mult.
-        feature_mul = torch.bmm(feature_B,feature_A)
-        correlation_tensor = feature_mul.view(b,h,w,h*w).transpose(2,3).transpose(1,2)
+        feature_mul = torch.bmm(feature_B, feature_A)
+        correlation_tensor = feature_mul.view(b, h, w, h*w).transpose(2, 3).transpose(1, 2)
         return correlation_tensor
 '''
 # 输入： feature_A， feature_B， size is（batch, d, h, w）
