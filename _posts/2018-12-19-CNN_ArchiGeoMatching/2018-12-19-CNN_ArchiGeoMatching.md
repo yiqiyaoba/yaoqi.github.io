@@ -112,7 +112,7 @@ Regression Network 是得到最后仿射参数的网络，如下图所示：
 最后得到的 $\hat \theta$ 的参数个数是可调的。
 
 ### Full Network
-整体的网络结构由上述相同的两个结果组成，只是最后的仿射参数的个数不同，如下图所示，Stage I 输出的仿射参数 ${\hat \theta _{Aff}}$ 为 **6** 个自由度， 而 Stage II 输出的 ${\hat \theta _{TPS}}$ 为18个自由度。
+整体的网络结构由上述相同的两个结构组成，只是最后的仿射参数的自由度（个数）不同，如下图所示，Stage I 输出的仿射参数 ${\hat \theta _{Aff}}$ 为 **6** 个自由度， 而 Stage II 输出的 ${\hat \theta _{TPS}}$ 为18个自由度。
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture_all.png" style="zoom:60%" />
 
