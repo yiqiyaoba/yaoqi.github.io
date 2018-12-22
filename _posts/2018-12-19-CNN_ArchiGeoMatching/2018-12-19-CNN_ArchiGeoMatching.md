@@ -10,14 +10,15 @@ mermaid: true
 status: Writing
 ---
 
-> **资料**：  
+# 资料 
+ 
 > Paper: [Convolutional neural network architecture for geometric matching](https://arxiv.org/abs/1703.05593) (CVPR'17)   
 > Website: [https://www.di.ens.fr/willow/research/cnngeometric/](https://www.di.ens.fr/willow/research/cnngeometric/)  
 > Code: [Pytorch Code](https://github.com/ignacio-rocco/cnngeometric_pytorch)
 
----
+# Paper Note
 
-# Paper Work
+## Paper Work
 这是关于图像几何/特征匹配的工作，如下图所示：
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/ImageGeometricMatching.png" style="zoom:70%" />
@@ -26,7 +27,7 @@ status: Writing
 
 扩大范围来说，这是估计图像之间对应关系的工作，是计算机视觉中的一个基本问题。可应用于三维重建、图像增强、语义分割等，也有 Paper 将其应用于姿态转换的问题上([Soft-Gated Warping-GAN for Pose-Guided Person Image Synthesis](https://arxiv.org/abs/1810.11610))。
 
-# Contribution
+## Contribution
 
 **handle large changes of appearance between the matched images.**
   
@@ -37,7 +38,7 @@ status: Writing
 
 (from [jianshu huyuanda](https://www.jianshu.com/p/837615ee36fd))
 
-# Architecture/Method
+## Architecture/Method
 
 网络结构如下图所示：
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture.png" style="zoom:70%" />
@@ -89,8 +90,8 @@ class FeatureCorrelation(torch.nn.Module):
 其中： .contiguous(): view只能用在contiguous的variable上。如果在view之前用了transpose, permute等，需要用contiguous()来返回一个contiguous copy。
 ```
 
-# Experiments
+## Experiments
 
-# Results
+## Results
 
-# Related Work
+## Related Work
