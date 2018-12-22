@@ -83,11 +83,13 @@ class FeatureCorrelation(torch.nn.Module):
         feature_mul = torch.bmm(feature_B,feature_A)
         correlation_tensor = feature_mul.view(b,h,w,h*w).transpose(2,3).transpose(1,2)
         return correlation_tensor
+'''
+# 输入： feature_A， feature_B， size is（batch, d, h, w）
+# 输出： correlation_tensor， size is (batch, (w * h), h, w)
 
-输入： feature_A， feature_B， size is（batch, d, h, w）
-输出： correlation_tensor， size is (batch, (w * h), h, w)
-
-其中： .contiguous(): view只能用在contiguous的variable上。如果在view之前用了transpose, permute等，需要用contiguous()来返回一个contiguous copy。
+# 其中： .contiguous(): view只能用在contiguous的variable上。
+# 如果在view之前用了transpose, permute等，需要用contiguous()来返回一个contiguous copy。
+'''
 ```
 
 ## Experiments
