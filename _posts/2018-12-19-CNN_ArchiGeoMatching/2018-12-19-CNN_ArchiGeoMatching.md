@@ -126,9 +126,13 @@ xxx
 
 ### Loss Function
 
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/loss.png" style="zoom:50%" />
+Loss 计算的是每个栅格点使用*预测参数*和*真实参数*进行仿射变换后得到的值之间的平方距离。
 
-### Dataset
+公式如下：
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/loss.png" style="zoom:30%" />
+
+### Training Dataset
 由于没有公开的数据集，故使用如下的方法人工构建：
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/SyntheticImageGeneration.png" style="zoom:60%" />
@@ -137,8 +141,16 @@ xxx
 在padded image的中央截取ImageA。
 对padded image进行仿射变换，在中央截取相同大小，获得ImageB。
 
+使用的数据集有 Tokyo Time Machine dataset 和 Pascal VOC 2011， 具体请看原文。
+
+### Evaluation Dataset
+方法的定量评估是在 Propsal Flow 数据集（[Paper](https://arxiv.org/pdf/1511.05065.pdf)）上做的，这个数据集是用于两幅图像之间关键点匹配的，包含900个图片 pairs，每一个 pairs 都是同一类的不同实例。
+
 ### Performance Measure
-xxx
+
+采用 Propsal Flow 中的关键点匹配的评估方法，经过仿射变换的图像的关键点与目标的关键点的匹配百分比。 匹配与否使用 $\alpha  \cdot \max (h,w),\alpha  = 0.1$
+ 来确定，在此范围内则认为是匹配的。
+
 
 ## Results
 xxx
