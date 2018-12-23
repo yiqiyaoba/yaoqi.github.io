@@ -125,14 +125,17 @@ xxx
 ## Experiments
 
 ### Loss Function
-xxx
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/loss.png" style="zoom:50%" />
 
 ### Dataset
 由于没有公开的数据集，故使用如下的方法人工构建：
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/SyntheticImageGeneration.png" style="zoom:60%" />
 
-
+为了避免仿射变换后带来的图像的边界问题，在原始图像中央截取Padded image。
+在padded image的中央截取ImageA。
+对padded image进行仿射变换，在中央截取相同大小，获得ImageB。
 
 ### Performance Measure
 xxx
