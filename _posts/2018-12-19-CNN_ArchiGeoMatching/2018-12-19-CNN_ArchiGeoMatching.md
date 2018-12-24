@@ -23,7 +23,7 @@ status: Writing
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/ImageGeometricMatching.png" style="zoom:70%" />
 
-给定一张图片 A，图中包含一个物体（这里是摩托车）， 以另一张包含相同特征物体的图像 B 作为目标， 实现的是 A 中的摩托车通过仿射变换拟合 B 中的图像。 学习的是这个仿射变换过程中的仿射参数。
+给定一张图片 A，图中包含一个物体（这里是摩托车）， 以另一张包含相同特征物体的图像 B 作为目标， 实现的是 A 中的摩托车通过变换拟合 B 中的图像。 学习的是这个变换过程中的参数。
 
 扩大范围来说，这是估计图像之间对应关系的工作，是计算机视觉中的一个基本问题。可应用于三维重建、图像增强、语义分割等，也有 Paper 将其应用于姿态转换的问题上([Soft-Gated Warping-GAN for Pose-Guided Person Image Synthesis](https://arxiv.org/abs/1810.11610))。
 
@@ -44,7 +44,7 @@ status: Writing
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture.png" style="zoom:60%" />
 
 **输入：** $I_A$, $I_B$, 图片  
-**输出：** 仿射参数（参数个数可调整）
+**输出：** 变换参数（参数个数可调整）
 
 ### Feature extraction CNN 
 使用的是 VGG-16 crop at pool4, 输出的每一个 feature 都经过了 L2-normalization, 之后得到 $f_A$, $f_B$.
@@ -103,7 +103,7 @@ class FeatureCorrelation(torch.nn.Module):
 > huyuanda 的笔记中有简单的介绍： [https://www.jianshu.com/p/837615ee36fd](https://www.jianshu.com/p/837615ee36fd)
 
 ### Regression
-Regression Network 是得到最后仿射参数的网络，如下图所示： 
+Regression Network 是得到最后变换参数的网络，如下图所示： 
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/RegressionNetwork.png" style="zoom:60%" />
 
@@ -112,21 +112,28 @@ Regression Network 是得到最后仿射参数的网络，如下图所示：
 最后得到的 $\hat \theta$ 的参数个数是可调的。
 
 ### Full Network
-整体的网络结构由上述相同的两个结构组成，只是最后的仿射参数的自由度（个数）不同，如下图所示，Stage I 输出的仿射参数 ${\hat \theta _{Aff}}$ 为 **6** 个自由度， 而 Stage II 输出的 ${\hat \theta _{TPS}}$ 为18个自由度。
+整体的网络结构由上述相同的两个结构组成，只是最后的变换参数的自由度（个数）不同，如下图所示，Stage I 输出的是仿射参数 ${\hat \theta _{Aff}}$， 为 **6** 个自由度， 而 Stage II 输出的是 Thin-plate Spline 变换参数 ${\hat \theta _{TPS}}$， 为 **18** 个自由度。
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/architecture_all.png" style="zoom:60%" />
 
 #### Affine Transformation
-xxx
+仿射变换，参数为 6 个自由度。 
+
+实现方法可参考 Pytorch 的 [Spatial Transformer Networks Tutorial](https://pytorch.org/tutorials/intermediate/spatial_transformer_tutorial.html)
+
 
 #### Thin-plate Spline Transformation
-xxx
+薄板样条插值（Thin-Plate Spline）
+
+> 参考资料：   
+> Blog: [数值方法——薄板样条插值（Thin-Plate Spline）](https://blog.csdn.net/VictoriaW/article/details/70161180)
+> Paper: [Principal warps: Thin-plate splines and the decomposition of deformations](http://user.engineering.uiowa.edu/~aip/papers/bookstein-89.pdf)
 
 ## Experiments
 
 ### Loss Function
 
-Loss 计算的是每个栅格点使用*预测参数*和*真实参数*进行仿射变换后得到的值之间的平方距离。
+Loss 计算的是每个栅格点使用*预测参数*和*真实参数*进行变换后得到的值之间的平方距离。
 
 公式如下：
 
@@ -137,9 +144,9 @@ Loss 计算的是每个栅格点使用*预测参数*和*真实参数*进行仿�
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-19-CNN_ArchiGeoMatching/assets/SyntheticImageGeneration.png" style="zoom:60%" />
 
-为了避免仿射变换后带来的图像的边界问题，在原始图像中央截取Padded image。
+为了避免变换后带来的图像的边界问题，在原始图像中央截取Padded image。
 在padded image的中央截取ImageA。
-对padded image进行仿射变换，在中央截取相同大小，获得ImageB。
+对padded image进行变换，在中央截取相同大小，获得ImageB。
 
 使用的数据集有 Tokyo Time Machine dataset 和 Pascal VOC 2011， 具体请看原文。
 
@@ -148,8 +155,7 @@ Loss 计算的是每个栅格点使用*预测参数*和*真实参数*进行仿�
 
 ### Performance Measure
 
-采用 Propsal Flow 中的关键点匹配的评估方法，经过仿射变换的图像的关键点与目标的关键点的匹配百分比。 匹配与否使用 $\alpha  \cdot \max (h,w),\alpha  = 0.1$
- 来确定，在此范围内则认为是匹配的。
+采用 Propsal Flow 中的关键点匹配的评估方法，经过变换的图像的关键点与目标的关键点的匹配百分比。 匹配与否使用 $\alpha  \cdot \max (h,w),\alpha  = 0.1$ 来确定，在此范围内则认为是匹配的。
 
 
 ## Results
