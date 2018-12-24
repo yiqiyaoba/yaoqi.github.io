@@ -3,3 +3,4 @@ _site
 node_modules
 .DS_STORE
 /about/draft.md
+/_posts/2018-12-1-template
