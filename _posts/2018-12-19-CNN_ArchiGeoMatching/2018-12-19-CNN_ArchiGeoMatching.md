@@ -159,7 +159,7 @@ Loss 计算的是每个栅格点使用*预测参数*和*真实参数*进行变�
 
 
 ## Results
-xxx
+请看论文。
 
 ## Related Work
-xxx
+原作者论文： [End-to-end weakly-supervised semantic alignment](http://openaccess.thecvf.com/content_cvpr_2018/papers/Rocco_End-to-End_Weakly-Supervised_Semantic_CVPR_2018_paper.pdf) —— CVPR2018
