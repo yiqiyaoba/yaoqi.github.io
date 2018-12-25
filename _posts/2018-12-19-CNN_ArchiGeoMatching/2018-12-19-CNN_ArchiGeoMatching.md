@@ -126,7 +126,7 @@ Regression Network 是得到最后变换参数的网络，如下图所示：
 薄板样条插值（Thin-Plate Spline）
 
 > 参考资料：   
-> Blog: [数值方法——薄板样条插值（Thin-Plate Spline）](https://blog.csdn.net/VictoriaW/article/details/70161180)
+> Blog: [数值方法——薄板样条插值（Thin-Plate Spline）](https://blog.csdn.net/VictoriaW/article/details/70161180)  
 > Paper: [Principal warps: Thin-plate splines and the decomposition of deformations](http://user.engineering.uiowa.edu/~aip/papers/bookstein-89.pdf)
 
 ## Experiments
