@@ -196,7 +196,7 @@ Geometrix Matcher 的思想来源于 [GEO](https://arxiv.org/abs/1703.05593), �
 ![image.png](attachment:image.png)
 
 $L_{PH}$ 计算的是 real 和 fake 图像经过判别器时对不同的特征层的输出计算loss的结果。
-$${L_{PH}} = {\sum\limits_{i = 0}^n {{a_i}\left\| {{F_i}(\hat I) - {F_i}(I)} \right\|} _1}$$
+$$L_{PH} = \sum\limits_{i = 0}^n {a_i\left\| {F_i(\hat I) - F_i(I)} \right\|} _1$$
 
 ## Experiments
 
