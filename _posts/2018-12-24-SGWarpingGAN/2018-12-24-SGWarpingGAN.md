@@ -18,47 +18,19 @@ status: Writing
 ## Data Preprocessing
 
 ### Parser Label
+Parser Label 表示的是将人体的结构进行语义分割，得到不同的部分，如下图所示。 
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-24-SGWarpingGAN/assets/parsering.png" style="zoom:100%" /> 
+
 使用预训练好的模型来生成 Parser 数据。  
 可选择的模型有两个： [LIP_SSL](https://github.com/Engineering-Course/LIP_SSL) 和 [LIP_JPPNet](https://github.com/Engineering-Course/LIP_JPPNet),   
-这里使用 **LIP_JPPNet** 的原代码，除了重新设计接口函数，其他不经任何改动。
 
+关于Parser Label 的数据集 Look into Person， 可以看 [LIP Note](https://huangtao36.github.io/dataset/LIP.html)
 
-```python
-from parseing_generate import generate_parser
-```
-
+本论文中的 Parser Label 是20层的, 每一层代表身体的一个部分。One-hot 编码， 顺序如下：
 
 ```python
-img_dir = './datasets/examples'
-save_dir = './datasets/output/'
-```
-
-输入的图片放置在 examples 文件夹内，文件名任意，大小任意。  
-每张图片有两个输出，一个是单层的 label，一个是 rgb-3 层的(为了直观显示)， png格式
-
-
-```python
-# Generate parser image
-generate_parser(img_dir, save_dir)
-```
-
-
-```python
-rgb_im = Image.open(os.path.join(img_dir, "images", '114317_456748.jpg'))
-par_im = np.array(Image.open(os.path.join(save_dir, '114317_456748.png')))
-plt.subplot(121)
-plt.imshow(rgb_im)
-plt.subplot(122)
-plt.imshow(par_im)
-plt.show()
-```
-
-
-![png](output_8_0.png)
-
-
-输出的 par_im 是单层的 label, 身体每一个部分有固定的编号，编号既是图像中对应的像素值。
-```python
+0. background
 1.Hat	帽子     
 2.Hair	头发          
 3.Glove	手套	
@@ -78,16 +50,9 @@ plt.show()
 17.Right-leg	右腿
 18.Left-shoe	左鞋    
 19.Right-shoe	右鞋
+
+# 注：这里的background 是除19层label的部分为0，其他均为1. 
 ```
-
----
-需要注意的是，论文中得到的 Parser label 是 20 层的，每一层表示一个身体部分，以 one-hot 形式编码， 顺序如上， 第 0 层是 background 层。
-
-
-**资源：**  
-- LIP 的笔记： [MyNote](https://huangtao36.github.io/dataset/LIP.html)  
-
----
 
 ### Pose Heatmaps
 基本的方法是使用 [OpenPose](https://github.com/tensorboy/pytorch_Realtime_Multi-Person_Pose_Estimation) 预训练好的模型来生成 heatmaps。
@@ -97,41 +62,7 @@ plt.show()
 **Heatmaps:**  encode the pose with 18 heatmaps. Each heatmap has one point that is ﬁlled with 1 in 4-pixel radius circle and 0 elsewhere.  
 需要注意的是， PG2 的 dataloader 得到的 heatmap 是 -1 elsewhere.
 
-
-```python
-from PG2_data_loader import get_loader
-```
-
-
-```python
-pose_loader = get_loader('./datasets/DF_img_pose', 1)
-```
-
-    _get_train_all_pn_pairs finish ...
-    p_pairs length:97854
-    _get_train_all_pn_pairs finish ...
-    p_pairs length:77538
-
-
-
-```python
-for step, example in enumerate(pose_loader):
-    image_0, image_1, pose_1, mask_1 = example
-    break
-```
-
-
-```python
-im_cache = pose_1[0, 0, :, :]
-plt.subplot(121)
-plt.imshow(im_cache)
-plt.subplot(122)
-plt.imshow(im_cache[30:45, 140:155])
-plt.show()
-```
-
-
-![png](output_14_0.png)
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-24-SGWarpingGAN/assets/heatmaps.png" style="zoom:100%" /> 
 
 
 Heapmap 对应人体 keypoints 位置：
