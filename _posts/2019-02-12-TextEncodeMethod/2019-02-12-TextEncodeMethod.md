@@ -19,5 +19,5 @@ status: Writing
 - text encoder 的理论基础
 - text encoder 是否如 FashionGAN 中原文描述一致
 
-## ICMR2016 中的 Text Encoder 方法
-原文中表述，这是一种 character-level text encoder， ﬁrst pre-train a deep convolutional recurrent text encoder on structured joint embedding of text captions with 1,024-dimensional GoogLeNet image embedings (Szegedy et al.  Going deeper with convolutions, 2015) as described in subsection 3.2.
+# ICMR2016 中的 Text Encoder 方法
+原文中表述，这是一种 character-level text encoder， ﬁrst pretrain a deep convolutional recurrent text encoder on structured joint embedding of text captions with 1,024-dimensional GoogLeNet image embedings (Szegedy et al.  Going deeper with convolutions, 2015) as described in subsection 3.2.
