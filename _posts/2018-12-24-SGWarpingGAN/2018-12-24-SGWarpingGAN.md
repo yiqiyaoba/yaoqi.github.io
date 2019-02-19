@@ -7,7 +7,7 @@ tags: PoseTransfer, GAN
 keywords:
 description: Synthesizing person images conditioned on arbitrary poses
 mermaid: true
-status: Writing
+status: Completed
 ---
 
 # 资料
@@ -79,7 +79,7 @@ Heapmap 对应人体 keypoints 位置：
 ## Model
 
 ### Stage I: Pose-Guided Parsing
-![image.png](attachment:image.png)
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-24-SGWarpingGAN/assets/stage1.png" style="zoom:100%" /> 
 
 这里的 Parser 是1.1节中预训练的模型，Encoder-->Decoder 参考 [Pix2pix](https://github.com/phillipi/pix2pix) 的结构(9 residual blocks)。
 
@@ -100,10 +100,10 @@ Ans: 根据其 loss 的设计来看，应是同步训练的。
 ---
 
 ### Stage II: Warping-GAN Rendering
-![image.png](attachment:image.png)
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-24-SGWarpingGAN/assets/stage2.png" style="zoom:100%" /> 
 
 #### Geometrix Matcher
-![image.png](attachment:image.png)
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-24-SGWarpingGAN/assets/geo_match.png" style="zoom:100%" /> 
 
 Geometrix Matcher 的思想来源于 [GEO](https://arxiv.org/abs/1703.05593), 一个基于图像特征做几何匹配变换的工作。
 
@@ -113,7 +113,7 @@ Geometrix Matcher 的思想来源于 [GEO](https://arxiv.org/abs/1703.05593), �
 <span class="burk">affine 和 Thin-plate Spline Transformation</span>
 
 #### Soft-gated Warping-Block
-![image.png](attachment:image.png)
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-24-SGWarpingGAN/assets/warp_block.png" style="zoom:100%" /> 
 
 
 ## Loss
@@ -123,8 +123,8 @@ Geometrix Matcher 的思想来源于 [GEO](https://arxiv.org/abs/1703.05593), �
 - $L_{pivel}$ : Pixel-wise softmax loss, 用于 Stage I. 来源：[Skeleton-aided Articulated Motion Generation](https://arxiv.org/pdf/1707.01058.pdf), 这个来源是论文中的引用，但似乎没有解释这个loss的具体含义，参考 [Blog](https://blog.csdn.net/magua1993/article/details/78230100) 中的解释，pixel-wise loss强调的是两幅图像之间每个对应像素的匹配，这与人眼的感知结果有所区别。通过pixel-wise loss训练的图片通常会较为平滑，缺少高频信息。还有些不知所云，<span class="burk">待深入了解</span>。
 - $L_{perceptual}$ : 常用于图像精细化，超分辨率的一个loss。 来源：[Perceptual Losses for Real-Time Style Transfer and Super-Resolution](https://arxiv.org/pdf/1603.08155.pdf), 简单的理解就是比较的两个图像经过同一个预训练好的网络（比如VGG-16）,去一个中间的特征层输出，去计算这两个特征矩阵之间的均方误差。 
 - $L_{PH}$ : pyramidal hierarchy loss. 如下图：
-
-![image.png](attachment:image.png)
+- 
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2018-12-24-SGWarpingGAN/assets/loss.png" style="zoom:100%" /> 
 
 $L_{PH}$ 计算的是 real 和 fake 图像经过判别器时对不同的特征层的输出计算loss的结果。
 $$L_{PH} = \sum\limits_{i = 0}^n {a_i\left\| {F_i(\hat I) - F_i(I)} \right\|} _1$$
