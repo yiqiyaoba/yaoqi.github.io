@@ -93,9 +93,8 @@ Heapmap 对应人体 keypoints 位置：
 ---
 
 <span class="burk">Q: Stage I 和 Stage II 是同步训练的还是分开训练的？？？</span>  
-Ans: 根据其 loss 的设计来看，应是同步训练的。  
-为满足 Test 的过程中没有对应 Target Pose 的 RGB 图片，Stage I 必不可少（没有rgb图片就没办法用LIP的模型生成 Parser 图片），
-但其实两个 Stage 也是可分的，可以完全独立的实验。具体效果怎么样，就得实验后才知道了。
+Ans: 分开训练的，StageI 中最后生成parser需要使用argmax， 是一个不可导的过程。
+为满足 Test 的过程中没有对应 Target Pose 的 RGB 图片，Stage I 必不可少（没有rgb图片就没办法用LIP的模型生成 Parser 图片）
 
 ---
 
