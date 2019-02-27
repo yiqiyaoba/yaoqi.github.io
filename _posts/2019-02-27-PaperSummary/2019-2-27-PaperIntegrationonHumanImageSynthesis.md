@@ -20,3 +20,20 @@ status: Writing
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-02-27-PaperSummary/HumanImageSynthesis/pg2_networks.png" style="zoom:80%" /> 
 
+# Soft-Gated Warping-GAN for Pose-Guided Person Image Synthesis
+
+> 发表： NIPS 2018  
+> Paper: [Soft-Gated Warping-GAN for Pose-Guided Person Image Synthesis](https://papers.nips.cc/paper/7329-soft-gated-warping-gan-for-pose-guided-person-image-synthesis.pdf)  
+> Code: None  
+>   
+> 两个阶段的模型，分离训练。 第一阶段用于生成目标图像的 Parser Mask(human segmentation map)，网络结构参考Pix2Pix。  
+> 第二阶段生成目标人物图像， 网络结构基于Pix2pixHD。    
+> 网络模型的核心在于基于 GEO 设计了一个几何变换的结构，计算原图与目标图像对应的 Parser 数据之间的几何参数，利用这个变换参数对原人物图像的特征图进行了一次 Warping。  
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-02-27-PaperSummary/HumanImageSynthesis/softgatewarpinggan_networks.png" style="zoom:80%" /> 
+
+> 附： GEO: Convolutional neural network architecture for geometric matching
+> 发表： CVPR 2017  
+> Code: [cnngeometric_pytorch](https://github.com/ignacio-rocco/cnngeometric_pytorch)  
+> website: [https://www.di.ens.fr/willow/research/cnngeometric/](https://www.di.ens.fr/willow/research/cnngeometric/)
+> Paper: [Convolutional neural network architecture for geometric matching](https://arxiv.org/abs/1703.05593)
