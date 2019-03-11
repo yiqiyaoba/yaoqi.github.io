@@ -26,18 +26,20 @@ Download Dataset:
 > Caltech-200 birds 共包括 200类-11,788 张鸟的图片
 
 分别下载 Image 和 Caption数据，解压后得到 CUB_200_2011 和 cub_icml 两个文件夹， 使用到的文件目录有：  
-- Caltech200_birds/CUB_200_2011/images  # 包含200类的鸟的图片，以类别为二级目录  
-- Caltech200_birds/cub_icml  # 对应每一个 image 的 caption 数据，.t7 文件  
-- Caltech200_birds/cub_icml/trainvalclasses.txt   # 用于训练的类别目录
+> Caltech200_birds/CUB_200_2011/images  # 包含200类的鸟的图片，以类别为二级目录  
+> Caltech200_birds/cub_icml  # 对应每一个 image 的 caption 数据，.t7 文件  
+> Caltech200_birds/cub_icml/trainvalclasses.txt   # 用于训练的类别目录
 
-.t7 文件使用 *from torch.utils.serialization import load_lua* 直接加载： *load_lua('xxx.t7')*, 得到一个字典，字典包含： 'char', 'img', 'txt', 'word' 四个 key, 这里只用第一个 **char**.
+.t7 文件使用 **from torch.utils.serialization import load_lua** 直接加载： **load_lua('xxx.t7')** , 得到一个字典，字典包含： 'char', 'img', 'txt', 'word' 四个 key, 这里只用第一、二个: **char， img**. (其余未作了解)
 
-> t7_dic['char'].shape is [201, 10], 包含10句话，每句做多 200 个字符，   
-> 字符对应： alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:'\"/\\|_@#$%^&*~`+-=<>()[]{} "  
+> t7\_dic['char'].shape is [201, 10], 包含10句话，每句做多 201 个字符，   
+> 字符对应： alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:'\"/\\|_@#$%^&*~`+-=<>()[]{} "    
+> t7\_dic['img'] 是对应的图片的路径。  
 
 
 使用下面的函数将其翻译为 sentences.
-```
+
+```python
 alphabet = "abcdefghijklmnopqrstuvwxyz0123456789-,;.!?:'\"/\\|_@#$%^&*~`+-=<>()[]{} "
 def _nums2chars(nums):
     chars = ''
@@ -45,6 +47,10 @@ def _nums2chars(nums):
         chars += alphabet[num - 1]
     return chars
 ```
+
+Caption 经过 Dataloader 出来的数据流程： 
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-03-11-SemanticImageSynthesis/assets/caption_dataloader.png" style="zoom:50%" /> 
 
 ## Text Embedding (Caption Encode)
 
