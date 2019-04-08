@@ -7,7 +7,7 @@ tags: text2img,
 keywords: text, img
 description: Note of Semantic Image Synthesis via Adversarial Learning
 mermaid: true
-status: Completed
+status: Writing
 ---
 
 # 资料
@@ -50,7 +50,7 @@ def _nums2chars(nums):
 
 Caption 经过 Dataloader 出来的数据流程： 
 
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-03-11-SemanticImageSynthesis/assets/caption_dataloader.png" style="zoom:50%" /> 
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-03-11-SemanticImageSynthesis/assets/caption_dataloader.png" style="zoom:80%" /> 
 
 ## Text Embedding (Caption Encode)
 
