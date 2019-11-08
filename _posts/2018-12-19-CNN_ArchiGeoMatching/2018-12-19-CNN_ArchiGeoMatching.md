@@ -7,6 +7,8 @@ tags: GeometricMatch, SpatialTransfer
 description: Paper Reading Notes
 ---
 
+> 图像几何/特征匹配， 估计图像之间对应关系的工作，是计算机视觉中的一个基本问题。可应用于三维重建、图像增强、语义分割等。
+
 # 资料 
 
 > Paper: [Convolutional neural network architecture for geometric matching](https://arxiv.org/abs/1703.05593) (CVPR'17)   
