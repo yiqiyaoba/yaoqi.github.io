@@ -1,74 +1,48 @@
-# Site settings
-title: Blog of Tao Huang
-description: 看似忙碌的人生
-baseurl: ""
-url: "https://github.com/huangtao36"
+encoding: UTF-8
 
-# GitHub User settings
-username: Tao Huang
-github_username: huangtao36
-user_description: xxx
-user_title: xxx
-email: htao36@163.com
-
-# Blog Author settings
-author:
-  name:           Tao Huang
-  picture:
-  email:          htao36@163.com
-  description:    XXX.
-  twitter:
-  facebook:
-  github:         https://github.com/huangtao36
-  linkedin:
-
-
-# markdown
+permalink: /:year/:month/:day/:title.html
+paginate: 5
 markdown: kramdown
 
 kramdown:
- footnote_nr: 1
- entity_output: as_char
- # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
- syntax_highlighter: rouge
- syntax_highlighter_opts:
-  # Use existing pygments syntax highlighting css
-  css_class: 'highlight'
- span:
-  line_numbers: false
- block:
-  line_numbers: true
-  start_line: 1
+  input: GFM
 
 highlighter: rouge
 
-plugins:
-  - jekyll-seo-tag
-  - jekyll-sitemap
 
+# 作者信息
+author: 
+  name: Huang Tao
+  email: htao36@163.com
+  link: https://huangtao36.github.io/
+  weibo: xx
+  github: https://github.com/huangtao36
+  github_username:  huangtao36
+  weibo_username:  xxx
 
-permalink: none
+# 站点信息
+title : HuangTao's Home
+description: 
+  xxx
+url: https://huangtao36.github.io/
+rss_url: /feed.xml
 
-defaults:
-  -
-    scope:
-      path: ""
-      type: "posts"
-    values:
-      toc: true
-      mathjax: true
-      mermaid: false
-      numbering: true
-      commentable: true
-      status: Completed
-      protected: false
-      rss: true
+# gavatar头像及Favicon
+gavatar : /assets/img/logo.jpg
+favicon : /assets/img/logo.png
 
+# disqus 设置
+#disqus:
+#  shortname: blademastercoder
 
-exclude:
- - LICENSE.md
- - README.md
- - "*.cdf"
- - "*.nb"
- - "*.bk"
- - "*.draft"
+#profile 个人信息
+
+profile_desc : xxx <br /> xxx<br> #QQ交流群：701451028<br>
+
+# 首页除了最新文章外显示分类
+cates: 
+- Essay
+
+# 中文本地化
+locals: 
+   newest : 最新文章

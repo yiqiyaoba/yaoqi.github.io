@@ -1,6 +1,0 @@
-User-agent: *
-Disallow: /about/xxx.pdf
-Disallow: /secret/
-Disallow: /secret
-
-SITEMAP: https://huangtao36.github.io/sitemap.xml

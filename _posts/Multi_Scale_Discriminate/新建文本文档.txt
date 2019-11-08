@@ -1,3 +1,0 @@
-I. Durugkar, I. Gemp, and S. Mahadevan. Generative
-multi-adversarial networks. In International Confer-
-ence on Learning Representations (ICLR), 2016.
