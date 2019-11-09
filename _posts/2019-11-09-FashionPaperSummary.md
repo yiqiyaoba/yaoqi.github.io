@@ -2,7 +2,7 @@
 layout: post
 title: Fashion Paper Summary
 mathjax: true
-categories: Paper, Summary
+categories: Summary
 tags: Summary, Paper
 keywords: Fashion
 description: summary all paper about fashion

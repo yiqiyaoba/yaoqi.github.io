@@ -3,7 +3,7 @@ layout: post
 title: Semantic Image Synthesis via Adversarial Learning(ICCV2017)
 mathjax: true
 categories: Paper
-tags: text2img,
+tags: [text2img]
 keywords: text, img
 description: Note of Semantic Image Synthesis via Adversarial Learning
 mermaid: true

@@ -3,7 +3,7 @@ layout: post
 title: Convolutional neural network architecture for geometric matching(CVPR'17)
 mathjax: true
 categories: Paper
-tags: GeometricMatch, SpatialTransfer
+tags: [Geometric Match, Spatial Transfer]
 description: Paper Reading Notes
 ---
 

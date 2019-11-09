@@ -3,7 +3,7 @@ layout: post
 title: Fashion Synthesis Benchmark  
 mathjax: true
 categories: Dataset
-tags: Deep Fashion
+tags: [Dataset]
 keywords: 
 description: 
 mermaid: true

@@ -3,7 +3,7 @@ layout: post
 title: Soft-Gated Warping-GAN for Pose-Guided Person Image Synthesis(NeurIPS'18)
 mathjax: true
 categories: Paper
-tags: PoseTransfer, GAN
+tags: [Pose Transfer]
 keywords:
 description: Synthesizing person images conditioned on arbitrary poses
 mermaid: true
