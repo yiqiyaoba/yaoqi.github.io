@@ -3,7 +3,7 @@ layout: post
 title: Fashion Paper Summary
 mathjax: true
 categories: Summary
-tags: Summary, Paper
+tags: [Summary, Paper]
 keywords: Fashion
 description: summary all paper about fashion
 ---
