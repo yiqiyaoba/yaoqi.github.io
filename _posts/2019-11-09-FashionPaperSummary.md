@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Fashion Paper Summary
+title: Awesome Fashion AI
 mathjax: true
 categories: Summary
 tags: [Summary, Paper]
@@ -8,7 +8,7 @@ keywords: Fashion
 description: summary all paper about fashion
 ---
 
-> 整理近年关于时尚图像的文章，仅从应用的角度，每篇文章的具体的模型或者优化方法会在其他笔记中详细研究，并在此文中附上链接。
+> 整理近年关于时尚图像的文章, 数据集等。
 
 ## 与文本有关的
 
@@ -79,6 +79,12 @@ description: summary all paper about fashion
   [[paper](http://openaccess.thecvf.com/content_cvpr_2018/papers/Han_VITON_An_Image-Based_CVPR_2018_paper.pdf)] [[code](https://github.com/xthan/VITON)]
 
   服装+人物图像的试穿
+
+## 时尚图像编辑
+
+- Fashion Editing with Adversarial Parsing Learning
+
+    [[paper](https://arxiv.org/pdf/1906.00884.pdf)]
 
 ## 其他
 
