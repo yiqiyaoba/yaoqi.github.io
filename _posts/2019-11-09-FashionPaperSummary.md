@@ -42,7 +42,7 @@ description: summary all paper about fashion
 
 -  Fashion++: Minimal Edits for Outfit Improvement-ICCV2019
 
-   [[paper]( https://arxiv.org/pdf/1904.09261.pdf )] [[ Supplementary ]( http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Hsiao_Fashion_Minimal_Edits_ICCV_2019_supplemental.pdf )] [[web]( http://vision.cs.utexas.edu/projects/FashionPlus/ )] [[code_pytorch]( https://github.com/facebookresearch/FashionPlus )]
+  [[paper]( https://arxiv.org/pdf/1904.09261.pdf )] [[ Supplementary ]( http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Hsiao_Fashion_Minimal_Edits_ICCV_2019_supplemental.pdf )] [[web]( http://vision.cs.utexas.edu/projects/FashionPlus/ )] [[code_pytorch]( https://github.com/facebookresearch/FashionPlus )]
 
   时尚迁移，minimal adjustments to a full-body clothing outfit that will have maximal impact on its fashionability
 
