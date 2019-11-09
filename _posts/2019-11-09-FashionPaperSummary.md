@@ -46,13 +46,13 @@ description: summary all paper about fashion
 
   时尚迁移，minimal adjustments to a full-body clothing outfit that will have maximal impact on its fashionability
 
--  FiNet: Compatible and Diverse Fashion Image Inpainting_ICCV2019(oral) 
+- FiNet: Compatible and Diverse Fashion Image Inpainting_ICCV2019(oral) 
 
   [[paper](  http://openaccess.thecvf.com/content_ICCV_2019/papers/Han_FiNet_Compatible_and_Diverse_Fashion_Image_Inpainting_ICCV_2019_paper.pdf )] [[supplementary]( http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Han_FiNet_Compatible_and_ICCV_2019_supplemental.pdf )]
 
   xx
 
--  M2E-Try On Net: Fashion from Model to Everyone 
+- M2E-Try On Net: Fashion from Model to Everyone 
 
   [[paper](https://arxiv.org/pdf/1811.08599.pdf )]
 
