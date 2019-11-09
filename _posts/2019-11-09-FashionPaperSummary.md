@@ -40,13 +40,13 @@ description: summary all paper about fashion
 
   发布新的数据集 Fashion-Gen [[link]( https://fashion-gen.com/ )], 包含时尚人物图像、鞋子、包包等随身物品以及对应的文本描述。完全使用 [AttnGAN]( http://openaccess.thecvf.com/content_cvpr_2018/papers/Xu_AttnGAN_Fine-Grained_Text_CVPR_2018_paper.pdf ) 做的生成模型代码 [[code_pytorch]( https://github.com/menardai/FashionGenAttnGAN )]
 
--  Fashion++: Minimal Edits for Outfit Improvement-ICCV2019
+- Fashion++: Minimal Edits for Outfit Improvement-ICCV2019
 
   [[paper]( https://arxiv.org/pdf/1904.09261.pdf )] [[ Supplementary ]( http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Hsiao_Fashion_Minimal_Edits_ICCV_2019_supplemental.pdf )] [[web]( http://vision.cs.utexas.edu/projects/FashionPlus/ )] [[code_pytorch]( https://github.com/facebookresearch/FashionPlus )]
 
   时尚迁移，minimal adjustments to a full-body clothing outfit that will have maximal impact on its fashionability
 
--   FiNet: Compatible and Diverse Fashion Image Inpainting_ICCV2019(oral) 
+-  FiNet: Compatible and Diverse Fashion Image Inpainting_ICCV2019(oral) 
 
   [[paper](  http://openaccess.thecvf.com/content_ICCV_2019/papers/Han_FiNet_Compatible_and_Diverse_Fashion_Image_Inpainting_ICCV_2019_paper.pdf )] [[supplementary]( http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Han_FiNet_Compatible_and_ICCV_2019_supplemental.pdf )]
 
