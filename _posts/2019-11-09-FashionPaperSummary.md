@@ -50,6 +50,8 @@ description: summary all paper about fashion
 
   [[paper](  http://openaccess.thecvf.com/content_ICCV_2019/papers/Han_FiNet_Compatible_and_Diverse_Fashion_Image_Inpainting_ICCV_2019_paper.pdf )] [[supplementary]( http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Han_FiNet_Compatible_and_ICCV_2019_supplemental.pdf )]
 
+  xx
+
 -  M2E-Try On Net: Fashion from Model to Everyone 
 
   [[paper](https://arxiv.org/pdf/1811.08599.pdf )]
