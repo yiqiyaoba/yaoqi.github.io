@@ -55,10 +55,10 @@ dl, dd, ol, ul, figure {
  */
 body {
   font-family: "微软雅黑", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 15px;
+  font-size: 18px;
   line-height: 1.5;
   font-weight: 300;
-  color: rgba(0,0,0,0.8);
+  color: rgba(0,0,0,1);
   background-color: #eaeaea;
   -webkit-text-size-adjust: 100%; }
 
