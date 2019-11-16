@@ -29,6 +29,12 @@ description: summary all paper about fashion
   [[paper](https://arxiv.org/pdf/1903.07499.pdf)] [[code(pytorch)](https://github.com/vtddggg/BilinearGAN_for_LBIE)]
 
   BilinearGAN, 基于文本描述改变人物服装, 代码中同时包含有 FiLMGAN 的实现。
+  
+- Semantically Consistent Hierarchical Text to Fashion Image Synthesis with an enhanced-Attentional Generative Adversarial Network
+
+    [[Paper](http://openaccess.thecvf.com/content_ICCVW_2019/papers/CVFAD/Ak_Semantically_Consistent_Hierarchical_Text_to_Fashion_Image_Synthesis_with_an_ICCVW_2019_paper.pdf)]
+
+    文本直接生成时尚图像
 
 ## 虚拟试穿
 
@@ -37,12 +43,6 @@ description: summary all paper about fashion
   [[paper](https://arxiv.org/pdf/1904.09261.pdf)] [[Supplementary ](http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Hsiao_Fashion_Minimal_Edits_ICCV_2019_supplemental.pdf)] [[web](http://vision.cs.utexas.edu/projects/FashionPlus/)] [[code_pytorch](https://github.com/facebookresearch/FashionPlus)]
 
   时尚迁移，minimal adjustments to a full-body clothing outfit that will have maximal impact on its fashionability
-
-- FiNet: Compatible and Diverse Fashion Image Inpainting_ICCV2019(oral) 
-
-  [[paper](http://openaccess.thecvf.com/content_ICCV_2019/papers/Han_FiNet_Compatible_and_Diverse_Fashion_Image_Inpainting_ICCV_2019_paper.pdf)] [[supplementary](http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Han_FiNet_Compatible_and_ICCV_2019_supplemental.pdf)]
-
-  xx
 
 - M2E-Try On Net: Fashion from Model to Everyone 
 
@@ -79,12 +79,28 @@ description: summary all paper about fashion
   [[paper](http://openaccess.thecvf.com/content_cvpr_2018/papers/Han_VITON_An_Image-Based_CVPR_2018_paper.pdf)] [[code](https://github.com/xthan/VITON)]
 
   服装+人物图像的试穿
+  
+- Generating High-Resolution Fashion Model Images Wearing Custom Outfits
+
+    [[Paper](http://openaccess.thecvf.com/content_ICCVW_2019/papers/CVFAD/Yildirim_Generating_High-Resolution_Fashion_Model_Images_Wearing_Custom_Outfits_ICCVW_2019_paper.pdf)]
+
+    多件服装综合生成人物时尚图像
 
 ## 时尚图像编辑
 
 - Fashion Editing with Adversarial Parsing Learning
 
     [[paper](https://arxiv.org/pdf/1906.00884.pdf)]
+    
+- FiNet: Compatible and Diverse Fashion Image Inpainting_ICCV2019(oral) 
+
+    [[paper](http://openaccess.thecvf.com/content_ICCV_2019/papers/Han_FiNet_Compatible_and_Diverse_Fashion_Image_Inpainting_ICCV_2019_paper.pdf)] [[supplementary](http://openaccess.thecvf.com/content_ICCV_2019/supplemental/Han_FiNet_Compatible_and_ICCV_2019_supplemental.pdf)]
+
+- Attribute Manipulation Generative Adversarial Networks for Fashion Images
+
+    [[Paper](http://openaccess.thecvf.com/content_ICCV_2019/papers/Ak_Attribute_Manipulation_Generative_Adversarial_Networks_for_Fashion_Images_ICCV_2019_paper.pdf)]
+
+    基于标签改变服装属性（颜色，袖子等）
 
 ## 其他
 
