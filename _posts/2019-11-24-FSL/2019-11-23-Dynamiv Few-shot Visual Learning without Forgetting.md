@@ -81,12 +81,13 @@ where $N_{b}$ is the number of training examples of the $b$ -th category and $x_
 
 ##### ConvNet-based recognition model
 
-1. A **feature extractor** $F(.| \theta)$ (with learnable parameters  $\theta$) that extracts a $d$ -dimensional feature vector $z=F(x | \theta) \in \mathbb{R}^{d}$ from an input image $x$ .
-2. A **classifier** $C\left(. | W^{*}\right)$, where $W^{*}=\left\{w_{k}^{*} \in \mathbb{R}^{d}\right\}_{k=1}^{K}$ are a set of $K^{*}$ classification weight vectors - one  per object category, that takes as input the feature representation $z$ and returns a $K^{*}$ -dimensional vector with the probability classification scores $p=C\left(z | W^{*}\right)$ of the $K^{*}$ categories. 
+A **feature extractor** $F(.| \theta)$ (with learnable parameters  $\theta$) that extracts a $d$ -dimensional feature vector $z=F(x | \theta) \in \mathbb{R}^{d}$ from an input image $x$ .
+
+A **classifier** $C\left(. | W^{*}\right)$, where $W^{*}=\left\{w_{k}^{*} \in \mathbb{R}^{d}\right\}_{k=1}^{K}$ are a set of $K^{*}$ classification weight vectors - one  per object category, that takes as input the feature representation $z$ and returns a $K^{*}$ -dimensional vector with the probability classification scores $p=C\left(z | W^{*}\right)$ of the $K^{*}$ categories. 
 
 (也就是传统的分类模型的两个模块)
 
-We learn the $\theta$ parameters and the classification weight vectors of the base categories $W_{base}=\left\{w_{k}\right\}_{k=1}^{K_{base}}$ such that by setting $W^{*}=W_{base}$  the ConvNet model will be able to recognize the base object categories.
+We learn the $\theta$ parameters and the classification weight vectors of the base categories $W_{base}=\left\{w_{k}\right\}_{k=1}^{K_{base}}$ such that by setting  $W^{*}=W_{base}$  the ConvNet model will be able to recognize the base object categories.
 
 #####  Few-shot classiﬁcation weight generator
 
@@ -102,19 +103,19 @@ where $N_{n}^{\prime}$ is the number of training examples of the $n$ -th novel c
 
 
 
-> - novel category  $n \in\left[1, N_{\text {novel }}\right]$   
->
-> - few-shot classiﬁcation weight generator  $G(., . . | \phi)$  
->
-> - input the feature vectors  $Z_{n}^{\prime}=\left\{z_{n, i}^{\prime}\right\}_{i=1}^{N_{n}^{\prime}}$  
->
-> - training examples $N_{n}^{\prime}$  
->
-> - here $z_{n, i}^{\prime}=F\left(x_{n, i}^{\prime} | \theta\right)$   
->
-> - classiﬁcation weight vector  $w_{n}^{\prime}=G\left(Z_{n}^{\prime}, W_{b a s e} | \phi\right)$    
->
->   
+novel category  $n \in\left[1, N_{\text {novel }}\right]$   
+
+few-shot classiﬁcation weight generator  $G(., . . | \phi)$  
+
+input the feature vectors  $Z_{n}^{\prime}=\left\{z_{n, i}^{\prime}\right\}_{i=1}^{N_{n}^{\prime}}$  
+
+training examples $N_{n}^{\prime}$  
+
+here $z_{n, i}^{\prime}=F\left(x_{n, i}^{\prime} | \theta\right)$   
+
+classiﬁcation weight vector  $w_{n}^{\prime}=G\left(Z_{n}^{\prime}, W_{b a s e} | \phi\right)$    
+
+
 
 简单来说就是使用预训练好的特征提取器提取新类别图像的特征，然后将其扔进 few-shot classiﬁcation weight generator 训练， 得到 classiﬁcation weight vector， 得到 $W_{\text {novel}}=\left\{w_{n}^{\prime}\right\}_{n=1}^{K_{n o v e l}}$ (the classiﬁcation weight vectors of the novel categories inferred by the few-shot weight generator).  最后，在 $C\left(. | W^{*}\right)$ 中合并两个分类权重向量： $W^{*}=W_{base} \cup W_{novel}$ ， 使 ConvNet 可以同时分类出 base 和 novel 中的类。
 
