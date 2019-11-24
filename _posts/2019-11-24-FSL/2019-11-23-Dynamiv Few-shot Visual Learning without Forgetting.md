@@ -98,7 +98,7 @@ where $N_{n}^{\prime}$ is the number of training examples of the $n$ -th novel c
 > - few-shot classiﬁcation weight generator  $$G(., . . | \phi)$$
 > - input the feature vectors  $$Z_{n}^{\prime}=\left\{z_{n, i}^{\prime}\right\}_{i=1}^{N_{n}^{\prime}}$$
 > - training examples $$N_{n}^{\prime}$$
-> - $$z_{n, i}^{\prime}=F\left(x_{n, i}^{\prime} | \theta\right)$$ 
+> - here $$z_{n, i}^{\prime}=F\left(x_{n, i}^{\prime} | \theta\right)$$ 
 > - classiﬁcation weight vector  $$w_{n}^{\prime}=G\left(Z_{n}^{\prime}, W_{b a s e} | \phi\right)$$  
 
 简单来说就是使用预训练好的特征提取器提取新类别图像的特征，然后将其扔进 few-shot classiﬁcation weight generator 训练， 得到 classiﬁcation weight vector， 得到 $$W_{\text {novel}}=\left\{w_{n}^{\prime}\right\}_{n=1}^{K_{n o v e l}}$$ (the classiﬁcation weight vectors of the novel categories inferred by the few-shot weight generator).  最后，在 $$C\left(. | W^{*}\right)$$ 中合并两个分类权重向量： $$W^{*}=W_{base} \cup W_{novel}$$ ， 使 ConvNet 可以同时分类出 base 和 novel 中的类。
