@@ -11,8 +11,7 @@ description:
 
 > CVPR2018-paper.   
 >
-> The human visual system has the remarkably ability to be able to effortlessly learn novel concepts from only a few examples. Mimicking the same behavior on machine learning vision systems is an interesting and very challenging research problem with many practical advantages on real world vision applications. In this context, the goal of our work is to devise a few-shot visual learning system that
-> during test time it will be able to efﬁciently learn novel cat- egories from only a few training data while at the same time it will not forget the initial categories on which it was trained (here called base categories).
+> The goal of this work is to devise a few-shot visual learning system that during test time it will be able to efﬁciently learn novel categories from only a few training data while at the same time it will not forget the initial categories on which it was trained (here called base categories).
 
 
 
