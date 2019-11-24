@@ -2,7 +2,7 @@
 layout: post
 title: Paper about Person Image Synthesis
 mathjax: true
-categories: Paper
+categories: Summary
 tags: [Person, Image Synthesis]
 keywords: Image-Synthesis
 description: 整合一些与人物图像生成有关的论文

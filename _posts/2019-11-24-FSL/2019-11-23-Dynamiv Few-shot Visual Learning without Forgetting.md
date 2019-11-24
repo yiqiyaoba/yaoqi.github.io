@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Dynamic Few-Shot Visual Learning without Forgetting
+title: Dynamic Few-Shot Visual Learning without Forgetting (CVPR2018)
 mathjax: true
 categories: Paper
 tags: [paper]
@@ -9,9 +9,8 @@ description:
 
 ---
 
-> CVPR2018-paper.   
->
 > The goal of this work is to devise a few-shot visual learning system that during test time it will be able to efﬁciently learn novel categories from only a few training data while at the same time it will not forget the initial categories on which it was trained (here called base categories).
+>
 
 
 
