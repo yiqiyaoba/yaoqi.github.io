@@ -81,9 +81,9 @@ where $N_{b}$ is the number of training examples of the $b$ -th category and $x_
 
 ##### ConvNet-based recognition model
 
-A **feature extractor** $F(.| \theta)$ (with learnable parameters  $\theta$) that extracts a $d$ -dimensional feature vector $z=F(x | \theta) \in \mathbb{R}^{d}$ from an input image $x$ .
+- A **feature extractor** $F(.|\theta)$ (with learnable parameters  $\theta$) that extracts a $d$ -dimensional feature vector $z=F(x | \theta) \in \mathbb{R}^{d}$ from an input image $x$ .
 
-A **classifier** $C\left(. | W^{*}\right)$, where $W^{*}=\left\{w_{k}^{*} \in \mathbb{R}^{d}\right\}_{k=1}^{K}$ are a set of $K^{*}$ classification weight vectors - one  per object category, that takes as input the feature representation $z$ and returns a $K^{*}$ -dimensional vector with the probability classification scores $p=C\left(z | W^{*}\right)$ of the $K^{*}$ categories. 
+- A **classifier** $C\left(.|W^{*}\right)$, where $W^{*}=\left\{w_{k}^{*}\in\mathbb{R}^{d}\right\}_{k=1}^{K}$ are a set of $K^{*}$ classification weight vectors - one  per object category, that takes as input the feature representation $z$ and returns a $K^{*}$ -dimensional vector with the probability classification scores $p=C\left(z | W^{*}\right)$ of the $K^{*}$ categories. 
 
 (也就是传统的分类模型的两个模块)
 
@@ -103,17 +103,17 @@ where $N_{n}^{\prime}$ is the number of training examples of the $n$ -th novel c
 
 
 
-novel category  $n \in\left[1, N_{\text {novel }}\right]$   
+- novel category  $n \in\left[1, N_{\text {novel }}\right]$   
 
-few-shot classiﬁcation weight generator  $G(., . . | \phi)$  
+- few-shot classiﬁcation weight generator  $G(., . . | \phi)$  
 
-input the feature vectors  $Z_{n}^{\prime}=\left\{z_{n, i}^{\prime}\right\}_{i=1}^{N_{n}^{\prime}}$  
+- input the feature vectors  $Z_{n}^{\prime}=\left\{z_{n, i}^{\prime}\right\}_{i=1}^{N_{n}^{\prime}}$  
 
-training examples $N_{n}^{\prime}$  
+- training examples $N_{n}^{\prime}$  
 
-here $z_{n, i}^{\prime}=F\left(x_{n, i}^{\prime} | \theta\right)$   
+- here $z_{n, i}^{\prime}=F\left(x_{n, i}^{\prime} | \theta\right)$   
 
-classiﬁcation weight vector  $w_{n}^{\prime}=G\left(Z_{n}^{\prime}, W_{b a s e} | \phi\right)$    
+- classiﬁcation weight vector  $w_{n}^{\prime}=G\left(Z_{n}^{\prime}, W_{b a s e} | \phi\right)$    
 
 
 
