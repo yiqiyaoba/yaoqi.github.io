@@ -65,7 +65,7 @@ xxx
 
 定义一个 具有 $K_{base}$ 个基本类别的数据集：    
 $$
-D_{t r a i n}=\bigcup_{b=1}^{K_{b a s e}}\left\{x_{b, i}\right\}_{i=1}^{N_{b}}
+D_{train}=\bigcup_{b=1}^{K_{base}}\left\{x_{b,i}\right\}_{i=1}^{N_{b}}
 $$
 where $N_{b}$ is the number of training examples of the $b$ -th category and $x_{b, i}$ is its $i$ -th training example. 
 
@@ -94,17 +94,19 @@ $$
 
 where $N_{n}^{\prime}$ is the number of training examples of the $n$ -th novel category and $x_{n, i}^{\prime}$ is its $i$ -th training example.
 
-> - novel category  $$n \in\left[1, N_{\text {novel }}\right]$$
+
+
+> - novel category  $$n \in\left[1, N_{\text {novel }}\right]$$  
 >
-> - few-shot classiﬁcation weight generator  $$G(., . . | \phi)$$
+> - few-shot classiﬁcation weight generator  $$G(., . . | \phi)$$  
 >
-> - input the feature vectors  $$Z_{n}^{\prime}=\left\{z_{n, i}^{\prime}\right\}_{i=1}^{N_{n}^{\prime}}$$
+> - input the feature vectors  $$Z_{n}^{\prime}=\left\{z_{n, i}^{\prime}\right\}_{i=1}^{N_{n}^{\prime}}$$  
 >
-> - training examples $$N_{n}^{\prime}$$
+> - training examples $$N_{n}^{\prime}$$  
 >
-> - here $$z_{n, i}^{\prime}=F\left(x_{n, i}^{\prime} | \theta\right)$$ 
+> - here $$z_{n, i}^{\prime}=F\left(x_{n, i}^{\prime} | \theta\right)$$   
 >
-> - classiﬁcation weight vector  $$w_{n}^{\prime}=G\left(Z_{n}^{\prime}, W_{b a s e} | \phi\right)$$  
+> - classiﬁcation weight vector  $$w_{n}^{\prime}=G\left(Z_{n}^{\prime}, W_{b a s e} | \phi\right)$$    
 >
 >   
 
