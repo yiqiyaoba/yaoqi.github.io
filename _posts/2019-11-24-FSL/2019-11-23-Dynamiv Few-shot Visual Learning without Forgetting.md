@@ -63,7 +63,7 @@ xxx
 
 ### Methodology
 
-定义一个 具有 $K_{base}$ 个基本类别的数据集：  
+定义一个 具有 $K_{base}$ 个基本类别的数据集：    
 $$
 D_{t r a i n}=\bigcup_{b=1}^{K_{b a s e}}\left\{x_{b, i}\right\}_{i=1}^{N_{b}}
 $$
