@@ -37,6 +37,8 @@ description:
 > - 数据集： [Link](https://mega.nz/#!rx0wGQyS!96sFlAr6yyv-9QQPCm5OBFbOm4XSD0t-HlmGaT5GaiE)  
 > - 论文： [Dynamic Few-Shot Visual Learning without Forgetting](https://arxiv.org/pdf/1804.09458.pdf)  
 > - 源码： [Github-Code](https://github.com/gidariss/FewShotWithoutForgetting)
+> - 相关博客：
+>   -  [few-shot learning是什么](https://blog.csdn.net/xhw205/article/details/79491649 )
 
 ---
 
@@ -69,5 +71,55 @@ where $N_{b}$ is the number of training examples of the $b$ -th category and $x_
 
 本文的目标是： 使用此数据集作为唯一输入，既能够准确地识别基本类别，又能在不忘记基本类别的前提下，动态地经过少量样本学习来识别新的类别。
 
-<img src="https://github.com/huangtao36/huangtao36.github.io/tree/master/_posts/2019-11-24-FSL/assets/1574575285411.png" alt="1574575285411" style="zoom:50%;" />
+#### Model 总览
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-11-24-FSL/assets/1574575285411.png" alt="1574575285411" style="zoom:50%;" />
+
+##### ConvNet-based recognition model
+
+- A **feature extractor** $F(.| \theta)$ (with learnable parameters  $\theta)$ that extracts a $d$ -dimensional feature vector $z=F(x | \theta) \in \mathbb{R}^{d}$ from an input image $x,$ 
+- A **classifier** $C\left(. | W^{*}\right),$ where $W^{*}=\left\{w_{k}^{*} \in \mathbb{R}^{d}\right\}_{k=1}^{K}$ are a set of $K^{*}$ classification weight vectors - one  per object category, that takes as input the feature representation $z$ and returns a $K^{*}$ -dimensional vector with the probability classification scores $p=C\left(z | W^{*}\right)$ of the $K^{*}$ categories. 
+
+(也就是传统的分类模型的两个模块)
+
+We learn the $\theta$ parameters and the classification weight vectors of the base categories $W_{base}=\left\{w_{k}\right\}_{k=1}^{K_{base}}$ such that by setting $W^{*}=W_{base}$  the ConvNet model will be able to recognize the base object categories.
+
+#####  Few-shot classiﬁcation weight generator
+
+>  Meta-learning mechanism. 在测试时，接受 $K_{novel}$ 个新类别的少量数据作为输入。
+
+$$
+D_{n o v e l}=\bigcup_{n=1}^{K_{n o v e l}}\left\{x_{n, i}^{\prime}\right\}_{i=1}^{N_{n}^{\prime}}
+$$
+
+where $N_{n}^{\prime}$ is the number of training examples of the $n$ -th novel category and $x_{n, i}^{\prime}$ is its $i$ -th training example.
+
+> - novel category  $$n \in\left[1, N_{\text {novel }}\right]$$
+> - few-shot classiﬁcation weight generator  $G(., . . | \phi)$
+> - input the feature vectors  $Z_{n}^{\prime}=\left\{z_{n, i}^{\prime}\right\}_{i=1}^{N_{n}^{\prime}}$
+> - training examples $N_{n}^{\prime}$
+> - $z_{n, i}^{\prime}=F\left(x_{n, i}^{\prime} | \theta\right)$ 
+> - classiﬁcation weight vector  $w_{n}^{\prime}=G\left(Z_{n}^{\prime}, W_{b a s e} | \phi\right)$  
+
+简单来说就是使用预训练好的特征提取器提取新类别图像的特征，然后将其扔进 few-shot classiﬁcation weight generator 训练， 得到 classiﬁcation weight vector， 得到 $W_{\text {novel}}=\left\{w_{n}^{\prime}\right\}_{n=1}^{K_{n o v e l}}$ (the classiﬁcation weight vectors of the novel categories inferred by the few-shot weight generator).  最后，在 $C\left(. | W^{*}\right)$ 中合并两个分类权重向量： $W^{*}=W_{b a s e} \cup W_{n o v e l}$ ， 使 ConvNet 可以同时分类出 base 和 novel 中的类。
+
+
+
+#### Model 详细
+
+##### Cosine-similarity based recognition model
+
+关于怎么在测试时合并可变数量的新的类别。
+
+
+
+
+
+
+
+
+
+
+
+
 
