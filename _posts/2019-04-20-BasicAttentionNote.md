@@ -26,7 +26,7 @@ A [Sequence to Sequence](https://arxiv.org/abs/1409.3215) network, or seq2seq ne
 
 现在的 Seq2Seq 或者 Encoder-Decoder 是最基本的模型，这种结构的模型通常将输入序列编码成一个固定长度的向量表示，对于长度较短的输入序列而言，该模型能够学习出对应合理的向量表示。然而，这种模型存在的问题在于：输入序列不论长短都会被编码成一个固定长度的向量表示，而解码则受限于该固定长度的向量表示，当输入序列非常长时，模型难以保留全部的必要信息，也即难以学到合理的向量表示。
 
-![1574945364482](2019-04-20-BasicAttentionNote.assets/1574945364482.png)
+![1574945364482](https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-04-20-BasicAttentionNote.assets/1574945364482.png)
 
 ## Attention Mechanism
 
@@ -38,7 +38,7 @@ Attention机制的实现是通过保留LSTM编码器对输入序列的中间输�
 换一个角度而言，输出序列中的每一项的生成概率取决于在输入序列中选择了哪些项。
 使用 Attention 机制便于理解在模型输出过程中输入序列中的信息是如何影响最后生成序列的。这有助于我们更好地理解模型的内部运作机制以及对一些特定的输入-输出进行 debug。
 
-![1574945537414](2019-04-20-BasicAttentionNote.assets/1574945537414.png)
+![1574945537414](https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-04-20-BasicAttentionNote.assets/1574945537414.png)
 
 ## Code
 
@@ -165,7 +165,7 @@ for di in range(target_length):
 - decoder_outputs： [10, 2000], 最多共10个单词，每[1, 2000] 表示从词典中搜索单词的概率，其中有一个[1,
   2000]应是对应词典中的终止符号
 
-![1574945791249](2019-04-20-BasicAttentionNote.assets/1574945791249.png)
+![1574945791249](https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-04-20-BasicAttentionNote.assets/1574945791249.png)
 
 ### Decoder with Attention 
 
@@ -235,6 +235,6 @@ for di in range(target_length):
 
 注意： attn_decoder中输入多了encoder_outputs， 输出多了decoder_attention
 
-![1574945907383](2019-04-20-BasicAttentionNote.assets/1574945907383.png)
+![1574945907383](https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-04-20-BasicAttentionNote.assets/1574945907383.png)
 
-![1574945923910](2019-04-20-BasicAttentionNote.assets/1574945923910.png)
+![1574945923910](https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-04-20-BasicAttentionNote.assets/1574945923910.png)
