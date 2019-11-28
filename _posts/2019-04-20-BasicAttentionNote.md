@@ -2,8 +2,8 @@
 layout: post
 title: Basic Attention Note
 mathjax: true
-categories: Note
-tags: [Note, Attention]
+categories: Knowledge
+tags: [Attention]
 keywords: Attention
 description: 
 
