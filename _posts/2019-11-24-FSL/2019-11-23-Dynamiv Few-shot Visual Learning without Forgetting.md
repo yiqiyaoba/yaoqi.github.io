@@ -81,13 +81,13 @@ where $N_{b}$ is the number of training examples of the $b$ -th category and $x_
 
 ##### ConvNet-based recognition model
 
-- A **feature extractor** $F(.|\theta)$ (with learnable parameters  $\theta$) that extracts a $d$ -dimensional feature vector $z=F(x | \theta) \in \mathbb{R}^{d}$ from an input image $x$ .
+- A **feature extractor** $F(.|\theta)$ (with learnable parameters  $\theta$) that extracts a $d$ -dimensional feature vector $z=F(x|\theta)\in\mathbb{R}^{d}$ from an input image $x$ .
 
 - A **classifier** $C\left(.|W^{*}\right)$, where $W^{*}=\left\{w_{k}^{*}\in\mathbb{R}^{d}\right\}_{k=1}^{K}$ are a set of $K^{*}$ classification weight vectors - one  per object category, that takes as input the feature representation $z$ and returns a $K^{*}$ -dimensional vector with the probability classification scores $p=C\left(z | W^{*}\right)$ of the $K^{*}$ categories. 
 
 (也就是传统的分类模型的两个模块)
 
-We learn the $\theta$ parameters and the classification weight vectors of the base categories $W_{base}=\left\{w_{k}\right\}_{k=1}^{K_{base}}$ such that by setting  $W^{*}=W_{base}$  the ConvNet model will be able to recognize the base object categories.
+We learn the $\theta$ parameters and the classification weight vectors of the base categories $W_{base}=\{w_{k}\}_{k=1}^{K_{base}}$ such that by setting  $W^{*}=W_{base}$  the ConvNet model will be able to recognize the base object categories.
 
 #####  Few-shot classiﬁcation weight generator
 
