@@ -77,5 +77,4 @@ $$
 
   <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575440605432.png" alt="1575440605432" style="zoom: 80%;" />
 
-  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/1575440675567.png" alt="1575440675567" style="zoom:80%;" />
-
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575440675567.png" alt="1575440675567" style="zoom:80%;" />
