@@ -10,8 +10,6 @@ description:
 
 > 基于 Attribute 来编辑人物时尚图像中上衣的颜色以及袖长.
 
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/which_dir/xxx.png" style="zoom:80%" />
-
 ## Abstract
 
 基于摘要的描述，获取到一下信息：
