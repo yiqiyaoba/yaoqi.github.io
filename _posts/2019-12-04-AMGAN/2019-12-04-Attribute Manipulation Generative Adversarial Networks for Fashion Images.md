@@ -58,7 +58,7 @@ description:
 
 <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575427154341.png" alt="1575427097321" style="zoom:60%;" />
 
-整个模型包含一个生成器 $G$ 和两个判别器 $D_I$ 和 $D_C$ ，$G$ 输出： generated image $z$ 和 attention mask $\alpha$. 
+整个模型包含一个生成器 $G$ 和两个判别器 $D_I$ 和 $D_C$ ，$G$ 输出： generated image $z$ 和 attention mask $\alpha$. CNN + CAM 是一个与训练好的注意力图生成模型。
 
 其中Attribute 表示为:
 $$
@@ -75,6 +75,42 @@ $$
 
 - Adversarial Loss.
 
-  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575440605432.png" alt="1575440605432" style="zoom: 80%;" />
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets//1575440605432.png" alt="1575440605432" style="zoom: 67%;" />
 
-  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575440675567.png" alt="1575440675567" style="zoom:80%;" />
+  > 其中 $\lambda_{gp}$ 为 [gradient penalty]( https://arxiv.org/abs/1704.00028 ) 项。另整理笔记探究 gradient penalty 。
+
+- Classification Loss 及 总的 Loss.
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575440675567.png" alt="1575440675567" style="zoom: 67%;" />
+
+**生成器优化：**
+
+生成器优化共包括5个损失： 1-Adversarial loss, 2-Classification loss, 3-Cycle Consistency loss, 4-Attention loss, 5-Perceptual loss.   
+
+总的：  
+$$
+L_G=L_{adv}^G+\lambda_{cls}L_{cls}^G+\lambda_{cyc}L_{cyc}^G+\lambda_{a}L_{a}^G+\lambda_{p}L_{p}^G
+$$
+
+> 其中： $\lambda_{cls} =1, \lambda_{cyc} = 10, \lambda_{a} = 10, \lambda_{p} = 20.$
+
+- **Adversarial loss:**
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575441774611.png" alt="1575441774611" style="zoom: 80%;" />
+
+- **Classification loss:**
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575441846650.png" alt="1575441846650" style="zoom:80%;" />
+
+- **Cycle Consistency loss:**
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575441965255.png" alt="1575441965255" style="zoom:80%;" />
+
+- **Attention loss:**
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575441989697.png" alt="1575441989697" style="zoom:80%;" />
+
+- **Perceptual loss:**
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575442008972.png" alt="1575442008972" style="zoom:80%;" />
+
