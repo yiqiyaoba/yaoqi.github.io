@@ -34,7 +34,7 @@ description:
 - 介绍了 [StarGAN(CVPR2018)](http://openaccess.thecvf.com/content_cvpr_2018/papers/Choi_StarGAN_Unified_Generative_CVPR_2018_paper.pdf),  [GANimation(ECCV2018)](http://openaccess.thecvf.com/content_ECCV_2018/papers/Albert_Pumarola_Anatomically_Coherent_Facial_ECCV_2018_paper.pdf) 和 [SaGAN(ECCV2018)](http://openaccess.thecvf.com/content_ECCV_2018/papers/Gang_Zhang_Generative_Adversarial_Network_ECCV_2018_paper.pdf) , 也是本文对比的三个算法。
 - 具体介绍本文的任务， 在 [Deepfashion](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Liu_DeepFashion_Powering_Robust_CVPR_2016_paper.pdf) 和 [Shopping100](https://ieeexplore.ieee.org/abstract/document/8354290)上做实验(Shopping100 似乎是非公开的数据集)
 
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575425133836.png" alt="1575425133836" style="zoom:80%;" />
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575425133836.png" alt="1575425133836" style="zoom:60%;" />
 
 - AMGAN 的具体结构：
   - 引入了一种用于属性操纵的注意机制，而无需利用关于属性位置的任何信息
@@ -52,4 +52,20 @@ description:
 
 > 重点解决通过前面描述还无法完全理解的内容
 
-<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575427097321.png" alt="1575427097321" style="zoom:80%;" />
+**Model**：
+
+<img src="2019-12-04-Attribute%20Manipulation%20Generative%20Adversarial%20Networks%20for%20Fashion%20Images.assets/1575427154341.png" alt="1575427097321" style="zoom:60%;" />
+
+整个模型包含一个生成器 $G$ 和两个判别器 $D_I$ 和 $D_C$ ，$G$ 输出： generated image $z$ 和 attention mask $\alpha$. 
+
+其中Attribute 表示为:
+$$
+m=\{m_1,\dots,m_N,r\}
+$$
+
+> where $N$ is the number of attribute values (e.g., long sleeve, red color, etc.) and $r$ indicates the attribute that is being manipulated (e.g., sleeve, color, etc.)
+
+**关于裁剪图像的位置确定方法：**
+
+图中基于 $\alpha$ 将原图与生成的图像裁剪对应的区域用于作为 $D_C$ 判别器的输入。做法是： pixel values of $\alpha$ that are above $50\%$ of its maximum value are segmented followed by estimating a bounding box that covers the largest connected region. Using bounding boxes, $x_C^∗$, $x_C$ are cropped from $x_I^∗$, $x_I$. 更为具体的，怎么确定 bounding boxes， 文中没有更详细的说明。
+
