@@ -96,21 +96,35 @@ $$
 
 - **Adversarial loss:**
 
-  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575441774611.png" alt="1575441774611" style="zoom: 80%;" />
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN//assets/1575441774611.png" alt="1575441774611" style="zoom: 80%;" />
 
 - **Classification loss:**
 
-  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575441846650.png" alt="1575441846650" style="zoom:80%;" />
+  交叉熵损失，与 Adversarial loss 使用同一个模型，只是最后一层不同。
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN//assets/1575441846650.png" alt="1575441846650" style="zoom:80%;" />
 
 - **Cycle Consistency loss:**
 
-  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575441965255.png" alt="1575441965255" style="zoom:80%;" />
+  StarGAN 的机制本身是基于 CycleGAN 的，使用原Attribute + 生成的图像输入模型生成与原图同样属性的图像，计算 Cycle Consistency loss。
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN//assets/1575441965255.png" alt="1575441965255" style="zoom:80%;" />
 
 - **Attention loss:**
 
-  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575441989697.png" alt="1575441989697" style="zoom:80%;" />
+  生成器生成人物图像的同时生成了一个注意力图。本文使用一个预训练好的 CNN+CAM 模型生成一个注意力图的 groundtruth， 计算 $l_1$ 损失。
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN//assets/1575441989697.png" alt="1575441989697" style="zoom:80%;" />
+
+  **Class Activation Mapping(CAM):**
+
+  相关 Paper: [Learning Deep Features for Discriminative Localization(CVPR2016)](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Zhou_Learning_Deep_Features_CVPR_2016_paper.pdf). 一个定位图像中符合标签内容位置的工作。
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575442945259.png" alt="1575442945259" style="zoom:80%;" />
 
 - **Perceptual loss:**
 
-  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575442008972.png" alt="1575442008972" style="zoom:80%;" />
+  由于没有配对的图像，本文通过寻找一个与生成图像属性相同的图像来计算 loss.
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN//assets/1575442008972.png" alt="1575442008972" style="zoom:80%;" />
 
