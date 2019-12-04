@@ -54,7 +54,9 @@ description:
 
 **Model**：
 
-<img src="2019-12-04-Attribute%20Manipulation%20Generative%20Adversarial%20Networks%20for%20Fashion%20Images.assets/1575427154341.png" alt="1575427097321" style="zoom:60%;" />
+模型的结构是基于 StarGAN 修改的。
+
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575427154341.png" alt="1575427097321" style="zoom:60%;" />
 
 整个模型包含一个生成器 $G$ 和两个判别器 $D_I$ 和 $D_C$ ，$G$ 输出： generated image $z$ 和 attention mask $\alpha$. 
 
@@ -68,4 +70,12 @@ $$
 **关于裁剪图像的位置确定方法：**
 
 图中基于 $\alpha$ 将原图与生成的图像裁剪对应的区域用于作为 $D_C$ 判别器的输入。做法是： pixel values of $\alpha$ that are above $50\%$ of its maximum value are segmented followed by estimating a bounding box that covers the largest connected region. Using bounding boxes, $x_C^∗$, $x_C$ are cropped from $x_I^∗$, $x_I$. 更为具体的，怎么确定 bounding boxes， 文中没有更详细的说明。
+
+**判别器优化：**
+
+- Adversarial Loss.
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575440605432.png" alt="1575440605432" style="zoom: 80%;" />
+
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/1575440675567.png" alt="1575440675567" style="zoom:80%;" />
 
