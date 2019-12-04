@@ -12,7 +12,7 @@ description:
 
 ## Abstract
 
-基于摘要的描述，获取到一下信息：
+基于摘要的描述，获取到以下信息：
 
 - 单一生成器完成多领域（multi-domain）图像翻译。
 
@@ -120,7 +120,7 @@ $$
 
   相关 Paper: [Learning Deep Features for Discriminative Localization(CVPR2016)](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Zhou_Learning_Deep_Features_CVPR_2016_paper.pdf). 一个定位图像中符合标签内容位置的工作。
 
-  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN/assets/1575442945259.png" alt="1575442945259" style="zoom:80%;" />
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN//assets/1575442945259.png" alt="1575442945259" style="zoom:80%;" />
 
 - **Perceptual loss:**
 
@@ -128,3 +128,36 @@ $$
 
   <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN//assets/1575442008972.png" alt="1575442008972" style="zoom:80%;" />
 
+## Region-speciﬁc Attribute Manipulation
+
+本文的方法还适用于只改变某个特定的部分，在这里特指只改变袖子的颜色（之前的都是改变整个上衣的颜色）。
+
+<img src="assets/1575443917438.png" alt="1575443917438" style="zoom: 80%;" />
+
+将颜色和袖长的属性生成器生成的注意力图结合即可达到这个效果。
+
+##  Experiments
+
+**模型输入:** [batch, 3+N+M, 128, 128], 3为图像rgb, N 为attribute value的个数（比如红、黄、蓝、 …）， M为 Attribute 的个数（比如：颜色、袖子、…）
+
+**对比算法：**  [StarGAN(CVPR2018)](http://openaccess.thecvf.com/content_cvpr_2018/papers/Choi_StarGAN_Unified_Generative_CVPR_2018_paper.pdf),  [GANimation(ECCV2018)](http://openaccess.thecvf.com/content_ECCV_2018/papers/Albert_Pumarola_Anatomically_Coherent_Facial_ECCV_2018_paper.pdf) 和 [SaGAN(ECCV2018)](http://openaccess.thecvf.com/content_ECCV_2018/papers/Gang_Zhang_Generative_Adversarial_Network_ECCV_2018_paper.pdf)
+
+**数据集：**
+
+- DeepFashion-Synthesis： 78,979张人物图像，128*128， Attribute: color (17), sleeve (4) 
+- Shopping 100K: 101,021张服装图像，同作者在18年建立的数据集，未公开，6 attributes: collar
+  (17), color (19), fastening (9), pattern (16), sleeve length (9)
+
+**Evaluation Metrics：**
+
+- Classiﬁcation Accuracy：
+
+  使用 ResNet-50 训练一个属性分类器来评价生成图像是否符合属性要求
+
+- Top-k Retrieval Accuracy.：
+
+  Top-k检索准确性考虑了搜索算法是否在Top-k结果中找到正确的图像。 如果检索到的图像包含输入和属性操作所需的属性，则它将为命中“ 1”，否则为未命中“ 0”。
+
+- User Study.：
+
+   20 participants
