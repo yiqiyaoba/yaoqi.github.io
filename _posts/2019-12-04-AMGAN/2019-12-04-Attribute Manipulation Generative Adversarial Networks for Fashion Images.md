@@ -120,7 +120,7 @@ $$
 
   相关 Paper: [Learning Deep Features for Discriminative Localization(CVPR2016)](https://www.cv-foundation.org/openaccess/content_cvpr_2016/papers/Zhou_Learning_Deep_Features_CVPR_2016_paper.pdf). 一个定位图像中符合标签内容位置的工作。
 
-  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN//assets/1575442945259.png" alt="1575442945259" style="zoom:80%;" />
+  <img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/2019-12-04-AMGAN//assets/1575442945259.png" alt="1575442945259" style="zoom:60%;" />
 
 - **Perceptual loss:**
 
@@ -132,7 +132,7 @@ $$
 
 本文的方法还适用于只改变某个特定的部分，在这里特指只改变袖子的颜色（之前的都是改变整个上衣的颜色）。
 
-<img src="assets/1575443917438.png" alt="1575443917438" style="zoom: 80%;" />
+<img src="https://raw.githubusercontent.com/huangtao36/huangtao36.github.io/master/_posts/assets/1575443917438.png" alt="1575443917438" style="zoom: 80%;" />
 
 将颜色和袖长的属性生成器生成的注意力图结合即可达到这个效果。
 
