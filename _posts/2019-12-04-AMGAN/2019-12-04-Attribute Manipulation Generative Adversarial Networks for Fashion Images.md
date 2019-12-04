@@ -10,6 +10,14 @@ description:
 
 > 基于 Attribute 来编辑人物时尚图像中上衣的颜色以及袖长.
 
+> 个人评价：
+>
+> - 本文的工作是第一个做时尚图像属性编辑的（至少我没有发现其他的）， 有一个文章做了只改变衣服属性的工作，在 CVPR2019 的 workshop 中，[Fashion-AttGAN]( http://openaccess.thecvf.com/content_CVPRW_2019/papers/FFSS-USAD/Ping_Fashion-AttGAN_Attribute-Aware_Fashion_Editing_With_Multi-Objective_GAN_CVPRW_2019_paper.pdf ), 基于AttGAN 的，做的比较简单。
+> - 本文实验图像分辨率较低（仅为128*128）。
+> - 基于预训练模型生成注意力图的方法会带来一些固有的误差
+> - 分类评估的方法没有给出原始的测试准确率
+> - 一开始就将 Attribute 输入的方法（3+N+M）的层数过多， 也太大（128*128），模型参数会成倍增加，不利于训练。
+
 ## Abstract
 
 基于摘要的描述，获取到以下信息：
