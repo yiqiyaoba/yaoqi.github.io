@@ -14,10 +14,11 @@ description:
 >
 > - 本文的工作是第一个做时尚图像属性编辑的（至少我没有发现其他的）， 有一个文章做了只改变衣服属性的工作，在 CVPR2019 的 workshop 中，[Fashion-AttGAN]( http://openaccess.thecvf.com/content_CVPRW_2019/papers/FFSS-USAD/Ping_Fashion-AttGAN_Attribute-Aware_Fashion_Editing_With_Multi-Objective_GAN_CVPRW_2019_paper.pdf ), 基于AttGAN 的，做的比较简单。
 > - 本文实验图像分辨率较低（仅为128*128）。
-> - 基于预训练模型生成注意力图的方法会带来一些固有的误差
+> - 基于预训练模型生成注意力图的方法会带来一些固有的误差，限制了网络的生成能力
 > - 分类评估的方法没有给出原始的测试准确率
 > - 一开始就将 Attribute 输入的方法（3+N+M）的层数过多， 也太大（128*128），模型参数会成倍增加，不利于训练。
 > - Perceptual Loss 使用预训练好的网络，直接用在同属性不同人物、服装、姿势、背景的情况下容易产生误差。
+> - 本文的方法一次只能改变单一的属性
 
 ## Abstract
 
