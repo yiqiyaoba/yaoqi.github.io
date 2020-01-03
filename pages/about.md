@@ -6,7 +6,7 @@ permalink: /pages/about.html
 
 <div class="home">
 
-	xxx
+	test
 
 </div>
 
