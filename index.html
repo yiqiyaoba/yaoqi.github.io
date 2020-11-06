@@ -1,115 +1,133 @@
----
-layout: default
----
+<html> 
+　<head> 
+　<object id=closes type="application/x-oleobject" 
+　classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"> 
+　<param name="command" value="close"> 
+　</object> 
+　</head> 
+　<body> 
+　 <p>
+	  
+The terms of service of this agreement (hereinafter referred to as the "Terms of Service") are the relevant rights and obligations stipulated by you and the company name (hereinafter referred to as the "company name") regarding the service provided by the company name (hereinafter collectively referred to as the application). This service The terms have legal effect on you and the company name.
 
-<div>
+1. Accept the terms
+The terms of service in this agreement can be updated by the company name at any time without prior notice. Once the terms of service are changed, the company name will be published on the webpage. Once the revised terms of service are published on the webpage, they will effectively replace the original terms of service. If you do not agree to any terms of this agreement and subsequent modifications, you can choose to stop using all the services provided by this application; if you choose to continue using this application service, you are deemed to have fully accepted this agreement and its modifications.
 
-   {% for post in paginator.posts %}
+2. Service Introduction
+Definition of this application service: This application service is provided by the company name, and provides you with a service platform that takes pictures, edits, uploads, browses, deletes, downloads, and shares pictures on the premise that you comply with the specific terms and conditions of this agreement. This application itself does not directly upload or provide image content, nor does it make any changes or edits to the images and photos you upload, browse, delete, download, and share to the storage platform. When you use this application service, you must equip yourself with the equipment required to access the Internet and use telecommunication value-added services, and you must bear the communication fees, information fees and other related fees charged by personal Internet access or third parties (including but not limited to telecommunication or mobile communication providers). There is a clearly agreed privacy policy in this agreement, and you should ensure that you have read and are willing to fully follow the privacy system of the company name publicity before using this service. The company name has the right to stipulate and modify the general measures for using this service, including but not limited to deciding whether to retain the basic information and upload information of your album, and the upload and save permissions of a single account. If the company name fails to store or delete the content or other information of the service according to your wishes, the company name does not assume any responsibility for this. At the same time, the company name reserves the right to modify or interrupt the service at any time without prior notice to you. The company name is not responsible to you or a third party. Unless the company name clearly stipulates otherwise, any new features of the current service, including new products, are unconditionally applicable to these terms of service.
 
-		<div class="postbox">
-			<div class="post-format-icon">
-                <a class="item-date pjaxlink" href="{{ post.url | prepend: site.baseurl }}"><span>{{post.category}}</span></a>
-            </div>
-			<div class="allpost">
-				<div class="title"><a class="pjaxlink" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></div>
-				<hr>
-				<div class="info">
-					<i class="fa fa-calendar"></i>&nbsp;{{ post.date | date:"%Y-%m-%d" }}
-					{% if post.tags.size > 0 %}
-				      <i class="fa fa-tags"></i>
-					<span class="index-post-tag">
-						{% for tag in post.tags %}
-							<a class="pjaxlink" href="/pages/tags.html#{{tag}}">{{ tag}}</a>
-						{% endfor %}
-					</span>
-					{% endif %}
-					<i class="fa fa-pencil-square"></i>&nbsp;{{post.content | number_of_words}}
-				</div>
-				<div class="contentAbstract">{{ post.excerpt }}</div>
-			</div>
-			<a href="{{ post.url | prepend: site.baseurl }}"  class="readmore pjaxlink">Read More <i class="glyphicon glyphicon-chevron-right"></i></a>
-		</div>
+3. The authenticity of your personal information
+(1) You should guarantee the authenticity, correctness and completeness of your identity information when using this service. If the information changes, you should change it in time. The company name cannot and will not affect you due to the untrue, Inaccurate, or your information has not been updated in time, or any loss or damage caused by you forgot your password. If you provide any wrong, false, outdated or incomplete information, and the company name is ascertained; or the company name has reasonable grounds to suspect that the aforementioned information is wrong, false, outdated or incomplete, the company name has the right to suspend Or terminate your account, and refuse you to use all or part of this service now or in the future.
 
-   {% endfor %}
+(2) After safely completing the registration procedure for this service and receiving a password and account number, you should maintain the confidentiality of the password and account number. You should be fully responsible for the activities performed by anyone using your password and account. The company name cannot discriminate against illegal or unauthorized use of your account and password. Therefore, the company name does not assume any responsibility. It is prohibited to transfer or illegally sell account numbers and passwords. If the company name discovers that the user is not the initial registrant of the account, the company name has the right to withdraw the account without having to bear legal responsibility to the account user.
 
-	{% if paginator.total_pages > 1 %}
-		<div class="pagination center">
-		
-			  <a class="pjaxlink" href="/index.html"><span class="x1" style="margin-left:5px;">首页</span></a>
-			  {% if paginator.previous_page %}
-			    <a class="pjaxlink"  href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><span class="x1" style="margin-right:5px;"><i class="glyphicon glyphicon-chevron-left"></i></span></a>
-			  {% endif %}
-			  
-			 {% assign curr_page_num = paginator.page %} 
-    			 {% if curr_page_num < 3 or curr_page_num == 3 %}
-        			{% assign startPage = 1 %}
-        			{% assign endPage = 5 %}
-      		  {% else if curr_page_num > paginator.total_pages|minus:3 or curr_page_num == paginator.total_pages|minus:3%}
-      		       {% assign startPage = paginator.total_pages|minus:4 %}
-        			{% assign endPage = paginator.total_pages %}
-      		  {% else %}
-      		       {% assign startPage = curr_page_num | minus:2 %}
-       		  	{% assign endPage = curr_page_num | plus:2 %}		  
-      		  {% endif %}
-      		  
-        		  {% if startPage < 1 %}	
-			  	{% assign startPage= 1 %} 
-			  {% endif %}     	
-			  	  
-      		  {% if endPage > paginator.total_pages %}	
-			  	{% assign endPage = paginator.total_pages %} 
-			  {% endif %} 
-			  
-			  {% for page in (startPage..endPage) %}
-				    {% if page == paginator.page %}
-				      <span class="active_page x1">{{ page }}</span>
-				    {% elsif page == 1 %}
-				      <a class="pjaxlink" href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}"><span class="x1">{{ page }}</span></a>
-				    {% else %}
-				      <a class="pjaxlink" href="/page{{page}}"><span class="x1">{{ page }}</span></a>
-				    {% endif %}
-			  {% endfor %}
+4. Service Purpose
+Unless you sign a separate agreement with the company name, you agree that this service is for personal, non-commercial use only. At the same time, you promise not to use this service for commercial purposes such as advertising, sales, and commercial display without the prior written consent of the company name. If the company name discovers that you use this service to perform the above behaviors, it has the right to delete the content you uploaded, or temporarily or permanently ban your photo album and account, without needing to notify you separately.
 
-			  {% if paginator.next_page %}
-			   	 <a class="pjaxlink" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"><span class="x1" style="margin-left:5px;"><i class="glyphicon glyphicon-chevron-right"></i></span></a>
-			  {% endif %}
-			  <a class="pjaxlink" href="/page{{paginator.total_pages}}/"><span class="x1" style="margin-left:5px;">末页</span></a>			  
-			  <span  style="margin-left:5px;">第{{paginator.page}}页 / 共{{paginator.total_pages}}页</span>
-		</div>
-	{% endif %}
+5. Rules of Use
+(1) You must not abuse the service of this application. The company name hereby solemnly draws your attention to any information such as pictures, photos, etc. uploaded (regardless of whether it is publicly uploaded), viewed, deleted, downloaded, shared, or shared through this service, and your registration Data or other data (hereinafter referred to as "content") are solely responsible for the uploading and use of content providers and users. You guarantee that you must not use this service or make, copy, upload, publish, or disseminate information containing one of the following contents on the company name page:
 
-<!--
-	<div class="pagination">
-	  {% if paginator.previous_page %}
-	    {% if paginator.page == 2 %}
-	      <a class="pagination-item newer" href="/">更新的博文</a>
-	    {% else %}
-	      <a class="pagination-item newer" href="/page{{paginator.previous_page}}">更新的博文</a>
-	    {% endif %}
-	  {% else %}
-	    <span class="pagination-item newer">已经是最新的博文</span>
-	  {% endif %}
+① Oppose the basic principles established by the Constitution;
 
-	  {% if paginator.next_page %}
-	    <a class="pagination-item older" href="/page{{paginator.next_page}}">更早的博文</a>
-	  {% else %}
-	    <span class="pagination-item older">已经是最后一页</span>
-	  {% endif %}
-	</div>
+② Endangering national security, leaking state secrets, subverting state power, and undermining national unity;
 
+③ Damage to national honor and interests;
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+④ Inciting ethnic hatred, ethnic discrimination, and undermining ethnic unity;
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
---> 
-<!--   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p> -->
+⑤ Undermining the state's religious policies, promoting cults and feudal superstition;
 
-</div>
+⑥ Spreading rumors, disturbing social order, and undermining social stability;
+
+⑦ Spreading obscenity, pornography, gambling, violence, murder, terror, or abetting crime;
+
+⑧ Insult or slander others, and infringe the legal rights of others;
+
+⑨ Inciting illegal assemblies, associations, processions, demonstrations, gathering crowds to disrupt social order;
+
+⑩ Activities in the name of illegal civil organizations;
+
+⑪ Contain false, harmful, intimidating, infringement of other's privacy, harassment, infringement, slander, vulgar, obscene, or other morally offensive content;
+
+⑫ Contains other content restricted or prohibited by Chinese laws, regulations and any norms with legal effect.
+
+(2) You must guarantee that you own the complete and flawless ownership and intellectual property rights of the photos and other works you uploaded, or that you have obtained legal authorization from others and have the right to upload on this application platform. The uploading behavior of this website does not infringe the legitimate rights and interests of any third party; you must not upload any internal information, confidential information, private information involving others, or content that infringes anyone’s patent, trademark, copyright, trade secret or other exclusive rights, Post or otherwise transmit on this application platform. Otherwise, you will be solely responsible for all the legal and economic responsibilities arising therefrom; if the company name assumes legal responsibility for this, you have the right to recover from you.
+
+(3) You must not use this service to make or spread computer viruses and other destructive programs, and you must not cause interference, confusion, or violation of any requirements of the network connected to this service, or the server or network connected to this service. Procedures, policies or rules, otherwise the company will retain the right to pursue its legal liabilities and have the right to submit them to relevant departments for processing.
+
+(4) The company name has the right to filter your uploaded pictures, added text, etc. If any pictures or texts that violate laws and regulations or the relevant provisions of this agreement are found, the company name has the right to delete or block them immediately. And there is no need to notify you separately.
+
+(5) You are not allowed to upload, post, send e-mails, or otherwise send advertising letters, promotional materials, spam, etc.
+
+(6) You agree to abide by the "General Principles of the Civil Law of the People's Republic of China", the "Copyright Law of the People's Republic of China", the "Law of the People's Republic of China on Keeping State Secrets", the "Regulations on the Protection of Computer Information System Security of the People's Republic of China", and the "Regulations on the Protection of Computer Software" , "The Supreme People's Court's Interpretation on Several Issues Concerning the Application of Law in the Trial of Cases Involving Computer Network Copyright Disputes (Fa Shi [2004] No. 1)", "Internet Copyright Administrative Protection Measures", "Internet News Information Service Management Regulations" and other relevant national laws , Regulations. In any case, if you violate national laws and regulations or these terms of service, causing any damage to the company name or any disputes, lawsuits, claims from third parties, etc., you must compensate the company name for all losses (including direct losses and Indirect loss).
+
+(7) You must not use this application to engage in any behavior that endangers the security of computer information and network, otherwise, once you complain, report, or discover, you will bear all legal responsibilities and compensate for the losses caused to the company name.
+
+(8) If your use of this application service does not comply with this agreement, the company name has the right to make independent judgments when discovered through notifications, reports, etc., and can immediately terminate the provision of parts to you without prior notice Or all services. If you distribute and disseminate reactionary, pornographic or other information that violates national laws and regulations through this application, the system records of this application may serve as evidence of your violation of laws and regulations; it is caused by your uploading and dissemination of the above content in this application Any damages or losses arising from claims by any third party or arising therefrom shall be fully borne by you.
+
+(9) The company has the right to supervise your use of this application. If you are found to have violated any provisions of this agreement when using the network services provided by this application through notifications, reports, etc., the company name company has the right to ask you to correct or Directly take all the measures deemed necessary by the company name (including but not limited to changing or deleting your uploaded content, suspending or terminating your right to use network services) to mitigate the impact of your misconduct.
+
+6. Licensing of content in public areas
+You agree to grant the company name global, license-free, non-exclusive, fully sublicensable, and permanently valid photos and texts that you publicly share in the public area of ​​this service (the public area refers to the area that can be used by general public users) The right to use, and the company name can use, copy, modify, adapt, publish, translate, and create derivative works based on the foregoing content for the specific purpose of displaying, disseminating, and promoting the posting of the foregoing content for Internet value-added services or telecommunications value-added services business.
+
+7. Service risk and disclaimer
+(1) This application is completely free, and the company name will not take any responsibility for lost photos or damaged files. The ghost special effects and 2012 or some special effects are fake and are for entertainment only. The company name will not be held responsible for any misunderstanding caused by the special effects photos.
+
+(2) You fully understand and agree that this service involves services such as the Internet and mobile communications, and may be affected by unstable factors in various links. Therefore, the service has the risk of service interruption or failure to meet your requirements due to the above-mentioned force majeure, computer virus or hacker attack, system instability, your location, your shutdown, GSM network, Internet network, communication line reasons, etc., or may cause the service The risk of cancellation or termination (any information you store in this service may not be restored), you who use this service must bear the above risks yourself. The company name does not guarantee the timeliness, safety, and accuracy of the service. You cannot send and receive reading messages, or deliver errors, and you are not responsible for the timeliness of personal settings, failure to save or other issues. The company name will not bear any responsibility for your data loss, loss or service suspension caused by force majeure or non-company name fault reasons.
+
+(3) For system failures that affect the normal operation of this service, the company promises to deal with and repair it in time as soon as it is discovered. However, the company name shall not be liable for the economic and spiritual losses incurred by you. In addition, the company reserves the right to suspend the provision of part or all of this service for maintenance, upgrades or other purposes without prior notice.
+
+(4) The company name solemnly reminds you that any content uploaded or sent through this service, whether publicly or privately, is the responsibility of the content provider. The company name cannot control the content transmitted through this service, nor can it fully control your use behavior. Therefore, it does not guarantee the legality, correctness, completeness, authenticity or quality of the content; you have foreseen that when you use this service, it may Will be exposed to unpleasant, inappropriate or offensive content, and agree to judge it by itself and assume all risks without relying on the company name. However, under any circumstances, the company name has the right to stop the transmission of any of the foregoing content and take corresponding actions, including but not limited to suspending all or part of your use of this service, keeping relevant records, and reporting to relevant authorities. However, the company name has the right (but not the obligation) to reject and delete any content that can be provided through this service that violates this clause or other content that arouses the company name or other objections to you based on its own consideration.
+
+(5) You fully understand and agree that if a third party uploads your pictures and other works to this application without your knowledge or consent, and any behavior that may infringe your rights and interests arising therefrom, the company No name assumes any responsibility to anyone.
+
+(6) You fully understand and agree that a third party can obtain relevant information in this application by visiting the company name website, and can use, modify, interpret, download or reprint the information. The company name does not assume any responsibility to anyone for any use, modification, interpretation, downloading or reprinting of information by you or a third party that may infringe your rights.
+
+(7) You fully understand and agree that you receive advertising information through this service, and then engage in any form of business dealings with advertisers, or participate in promotional activities, including payment and delivery of related goods or services, and any other relevant terms reached , Conditions, guarantees or declarations are entirely between you and the advertiser. Except that the relevant laws require the company name to be liable, the company name shall not be responsible for any loss or damage of any nature suffered by you as a result of any of the foregoing transactions or the foregoing advertisers.
+
+(8) The company name has the right to freeze or withdraw the album account you used after notifying you at least 3 days in advance according to the needs of the service.
+
+8. In the event of any of the following situations, the company name has the right to suspend or terminate the provision of services to you at any time without notifying you
+(1) The personal information you provided is untrue;
+
+(2) You violate the provisions of these terms of service;
+
+(3) Long-term idle account and corresponding domain name after you register;
+
+(4) The company name discovers that you have maliciously registered an album account or the company name receives a third party complaint and the third party has issued corresponding evidence;
+
+(5) Other company names are considered to be special circumstances that meet the overall service requirements.
+
+9. Disclosure of Information
+In the following circumstances, the company name will disclose your personal information, and the resulting responsibilities will be borne by you personally:
+
+(1) You authorize or agree to the disclosure of the company name;
+
+(2) In some cases, only by disclosing your personal information can you provide the products and services you insist on;
+
+(3) In an emergency, to protect the company name and your legal rights or public safety and interests;
+
+(4) Provide your personal information in accordance with legal provisions or requirements of competent authorities;
+
+(5) You agree to let a third party share information;
+
+(6) We found that you violated the company's terms of service or any other product service regulations;
+
+(7) According to the relevant provisions of the service terms and statements of the company name, or other circumstances deemed necessary by the company name;
+
+10. Ownership of content, logo and software
+The content includes the special effect name, sound, picture, etc. of this application, as well as all the content in the email message and advertisement. The logo includes the "company name", this application and related graphic logos. All these contents and logos are protected by copyright, trademark rights, patent rights and other laws. Therefore, you can only use the content under the authorization of the company name, and you cannot copy or recreate the content, or create derivative products related to the content without authorization.
+
+All rights of any software used by this application to provide network services (including but not limited to any images, photos, animations, videos, recordings, music, text and additional programs, and accompanying help materials contained in the software) belong to The copyright owner of the software, without the permission of the copyright owner of the software, you may not reverse engineer, decompile or disassemble the software, or discover its original code in other ways , And the implementation of any suspected copyright infringement.
+
+The clothes material comes from the Internet. If copyright is involved, please contact us and we can delete it.
+
+11. Applicable law and dispute jurisdiction
+The validity and interpretation of these terms of service are applicable to the laws of the People's Republic of China. If any part of the terms of service conflicts with the laws of the People's Republic of China, the part of the terms shall be re-interpreted in accordance with the law. The invalidity or re-interpretation of some terms does not affect the legal effect of other terms.
+
+You and the company name agree that all disputes arising from this service should be resolved through consultation. If the negotiation fails, either party can submit the company name to the court where the company name is located.
+
+12. The company name has the final right to interpret the terms of service of this agreement
+Your comments and suggestions on any part of the service or any part of the terms of service can be contacted with the company name through the customer service department.</p>
+　</body> 
+　</html> 
