@@ -1,20 +1,11 @@
----
-layout: null
----
-<?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
-  <channel>
-    <title>{{ site.title }}</title>
-    <link>{{ site.url }}</link>
-    <description>{{ site.description }}</description>
-    {% for post in site.posts limit:20 %}
-      <item>
-        <title>{{ post.title }}</title>
-        <link>{{ site.url }}{{ post.url }}</link>
-        <guid isPermaLink="true">{{ site.url }}{{ post.url }}</guid>
-        <pubDate>{{ post.date | date_to_rfc822 }}</pubDate>
-        <description>{{ post.content | xml_escape }}</description>
-      </item>
-    {% endfor %}
-  </channel>
-</rss>
+<html> 
+　<head> 
+　<object id=closes type="application/x-oleobject" 
+　classid="clsid:adb880a6-d8ff-11cf-9377-00aa003b7a11"> 
+　<param name="command" value="close"> 
+　</object> 
+　</head> 
+　<body> 
+　Contact me: cleanerFasterHelp@htomail.com
+　</body> 
+　</html> 
